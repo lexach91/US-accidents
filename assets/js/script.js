@@ -29,6 +29,50 @@ d3.csv("assets/data/US_Accidents_Dec20_updated.csv")
             d.wind_speed = +d.wind_speed;
             d.zipcode = +d.zipcode;
         })
-        console.log(data)
         const csData = crossfilter(data);
+        const all = csData.groupAll();
+// id,severity,date,distance,description,city,county,state,zipcode,temperature,humidity,pressure,visibility,wind_direction,wind_speed,weather_condition,amenity,bump,crossing,give_way,junction,no_exit,railway,roundabout,station,stop,traffic_calming,traffic_signal,turning_loop,sunrise_sunset
+
+        const stateDim = csData.dimension(dc.pluck("state"));
+        const dateDim = csData.dimension(dc.pluck("date"));
+
+        const accidentsByStateGroup = stateDim.group();
+
+        d3.json("assets/data/us-states.json").then(mapJson => {
+            mapChart
+              .height(500)
+              .dimension(stateDim)
+              .group(accidentsByStateGroup)
+            //   .colors(
+            //     d3
+            //       .scaleQuantize()
+            //       .range([
+            //         "#E2F2FF",
+            //         "#C4E4FF",
+            //         "#9ED2FF",
+            //         "#81C5FF",
+            //         "#6BBAFF",
+            //         "#51AEFF",
+            //         "#36A2FF",
+            //         "#1E96FF",
+            //         "#0089FF",
+            //         "#0061B5",
+            //       ])
+            //   )
+            //   .colorDomain([0, 200])
+            //   .colorCalculator(function (d) {
+            //     return d ? mapChart.colors()(d) : "#ccc";
+            //   })
+              .overlayGeoJson(mapJson.features, "state", function (d) {
+                return d.properties.name;
+              })
+              .projection(d3.geoAlbersUsa())
+              .valueAccessor(function (kv) {
+                console.log(kv);
+                return kv.value;
+              });
+
+              dc.renderAll();
+
+        })
     });
