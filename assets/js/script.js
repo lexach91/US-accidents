@@ -2,6 +2,7 @@ const mapChart = dc.geoChoroplethChart("#us-map");
 const weatherChart = dc.pieChart("#weather-selector");
 const timelineChart = dc.barChart("#timeline");
 const totalNumber = dc.numberDisplay("#total-num");
+const dayNightChart = dc.pieChart("#day-night");
 
 const parseDate = d3.timeParse("%Y-%m-%d");
 d3.csv("assets/data/US_Accidents_Dec20_updated.csv")
@@ -37,11 +38,13 @@ d3.csv("assets/data/US_Accidents_Dec20_updated.csv")
         const stateDim = csData.dimension(dc.pluck("state"));
         const dateDim = csData.dimension(dc.pluck("date"));
         const weatherDim = csData.dimension(dc.pluck("weather_condition"));
+        const dayNightDim = csData.dimension(dc.pluck("sunrise_sunset"));
 
 
         const accidentsByStateGroup = stateDim.group();
         const weatherGroup = weatherDim.group();
         const dateGroup = dateDim.group();
+        const dayNightGroup = dayNightDim.group();
 
         d3.json("assets/data/us-states.json").then(mapJson => {
             mapChart
@@ -60,10 +63,16 @@ d3.csv("assets/data/US_Accidents_Dec20_updated.csv")
 
             weatherChart
               .height(350)
-              .width(350)
+              .width(550)
               .dimension(weatherDim)
               .group(weatherGroup)
-              .data(group => group.top(10))
+              .data((group) => group.top(10))
+              .legend(dc.legend())
+              .innerRadius(50)
+              .minAngleForLabel(100)
+              // .externalLabels(30)
+              // .externalRadiusPadding(50)
+              // .drawPaths(true);
             //   .elasticX(true);
 
 
@@ -90,6 +99,10 @@ d3.csv("assets/data/US_Accidents_Dec20_updated.csv")
               //     none:'no records'})
             //   .transitionDuration(1700)
             //   .formatNumber(d3.format("f"));
+
+            dayNightChart
+              .dimension(dayNightDim)
+              .group(dayNightGroup);
 
             
             dc.renderAll();
