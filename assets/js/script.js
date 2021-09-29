@@ -1,6 +1,7 @@
 const mapChart = dc.geoChoroplethChart("#us-map");
 const weatherChart = dc.pieChart("#weather-selector");
 const timelineChart = dc.barChart("#timeline");
+const totalNumber = dc.numberDisplay("#total-num");
 
 const parseDate = d3.timeParse("%Y-%m-%d");
 d3.csv("assets/data/US_Accidents_Dec20_updated.csv")
@@ -37,8 +38,6 @@ d3.csv("assets/data/US_Accidents_Dec20_updated.csv")
         const dateDim = csData.dimension(dc.pluck("date"));
         const weatherDim = csData.dimension(dc.pluck("weather_condition"));
 
-        console.log(dateDim.bottom(1)[0].date);
-        console.log(dateDim.top(1)[0].date);
 
         const accidentsByStateGroup = stateDim.group();
         const weatherGroup = weatherDim.group();
@@ -79,6 +78,18 @@ d3.csv("assets/data/US_Accidents_Dec20_updated.csv")
                   .scaleTime()
                   .domain([dateDim.bottom(1)[0].date, dateDim.top(1)[0].date])
               );
+
+            totalNumber
+              // .dimension(csData)
+              .group(all)
+              .valueAccessor((x) => x)
+              .formatNumber(d3.format("d"));
+              // .html({
+              //     one:'%number record',
+              //     some:'%number records',
+              //     none:'no records'})
+            //   .transitionDuration(1700)
+            //   .formatNumber(d3.format("f"));
 
             
             dc.renderAll();
