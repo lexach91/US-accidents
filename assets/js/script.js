@@ -2,7 +2,7 @@ const mapChart = dc.geoChoroplethChart("#us-map");
 const weatherChart = dc.pieChart("#weather-selector");
 const timelineChart = dc.barChart("#timeline");
 
-const parseDate = d3.timeParse("%Y-%m-%d %H:%M:%S");
+const parseDate = d3.timeParse("%Y-%m-%d");
 d3.csv("assets/data/US_Accidents_Dec20_updated.csv")
     .catch(err => {throw err})
     .then(data => {
@@ -20,7 +20,7 @@ d3.csv("assets/data/US_Accidents_Dec20_updated.csv")
             d.traffic_calming = JSON.parse(d.traffic_calming.toLowerCase());
             d.traffic_signal = JSON.parse(d.traffic_signal.toLowerCase());
             d.turning_loop = JSON.parse(d.turning_loop.toLowerCase());
-            d.date = parseDate(d.date);
+            d.date = parseDate(d.date.slice(0, 10));
             d.distance = +d.distance;
             d.humidity = +d.humidity;
             d.pressure = +d.pressure;
@@ -36,6 +36,9 @@ d3.csv("assets/data/US_Accidents_Dec20_updated.csv")
         const stateDim = csData.dimension(dc.pluck("state"));
         const dateDim = csData.dimension(dc.pluck("date"));
         const weatherDim = csData.dimension(dc.pluck("weather_condition"));
+
+        console.log(dateDim.bottom(1)[0].date);
+        console.log(dateDim.top(1)[0].date);
 
         const accidentsByStateGroup = stateDim.group();
         const weatherGroup = weatherDim.group();
@@ -66,7 +69,7 @@ d3.csv("assets/data/US_Accidents_Dec20_updated.csv")
 
 
             timelineChart
-              .width(1000)
+              .width(1300)
               .height(300)
               .dimension(dateDim)
               .group(dateGroup)
