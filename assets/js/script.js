@@ -3,6 +3,7 @@ const weatherChart = dc.pieChart("#weather-selector");
 const timelineChart = dc.barChart("#timeline");
 const totalNumber = dc.numberDisplay("#total-num");
 const dayNightChart = dc.pieChart("#day-night");
+const severityChart = dc.rowChart("#severity")
 
 const parseDate = d3.timeParse("%Y-%m-%d");
 d3.csv("assets/data/US_Accidents_Dec20_updated.csv")
@@ -39,12 +40,14 @@ d3.csv("assets/data/US_Accidents_Dec20_updated.csv")
         const dateDim = csData.dimension(dc.pluck("date"));
         const weatherDim = csData.dimension(dc.pluck("weather_condition"));
         const dayNightDim = csData.dimension(dc.pluck("sunrise_sunset"));
+        const severityDim = csData.dimension(dc.pluck("severity"))
 
 
         const accidentsByStateGroup = stateDim.group();
         const weatherGroup = weatherDim.group();
         const dateGroup = dateDim.group();
         const dayNightGroup = dayNightDim.group();
+        const severityGroup = severityDim.group();
 
         d3.json("assets/data/us-states.json").then(mapJson => {
             mapChart
@@ -82,11 +85,15 @@ d3.csv("assets/data/US_Accidents_Dec20_updated.csv")
               .dimension(dateDim)
               .group(dateGroup)
               .elasticY(true)
+              .renderHorizontalGridLines(true)
+              .renderVerticalGridLines(true)
+              .margins({ top: 30, right: 10, bottom: 30, left: 50 })
               .x(
                 d3
                   .scaleTime()
                   .domain([dateDim.bottom(1)[0].date, dateDim.top(1)[0].date])
-              );
+              )
+              .xAxis().ticks(30);
 
             totalNumber
               // .dimension(csData)
@@ -104,6 +111,27 @@ d3.csv("assets/data/US_Accidents_Dec20_updated.csv")
               .dimension(dayNightDim)
               .group(dayNightGroup);
 
+
+            severityChart
+              // .width(400)
+              // .height(500)
+              .dimension(severityDim)
+              .group(severityGroup)
+              .ordering(d => {
+                if(d.value == 1){
+                  return 0
+                } else if(d.value === 2){
+                  return 1
+                } else if(d.value === 3) {
+                  return 2
+                } else {
+                  return 3
+                } })
+              // .minAngleForLabel(0);
+              // .x(d3.scaleLinear().domain([0.5,5]))
+              // .centerBar(true)
+              // .xAxis().ticks(4)
+              // .elasticX(true)  
             
             dc.renderAll();
 
