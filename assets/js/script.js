@@ -4,7 +4,7 @@ const timelineChart = dc.barChart("#timeline");
 const totalNumber = dc.numberDisplay("#total-num");
 const dayNightChart = dc.pieChart("#day-night");
 const severityChart = dc.rowChart("#severity")
-const scatterLocationChart = dc.scatterPlot("#scatter-location");
+// const scatterLocationChart = dc.scatterPlot("#scatter-location");
 
 const dataUrl =
   "https://media.githubusercontent.com/media/lexach91/US-accidents/main/assets/data/US_Accidents_Dec20_updated.csv";
@@ -111,26 +111,26 @@ d3.csv("https://query.data.world/s/3cjklaknwxpa2wqy4326n6t4yiqb33")
         })        
         .elasticX(true);
 
-      scatterLocationChart
-        .height(500)
-        .width(870)
-        .useCanvas(true)
-        .dimension(locationsDim)
-        .group(locationGroup)
-        .x(d3.scaleLinear().domain([-125, -65]))
-        .data(group => group.top(100000))
-        .brushOn(false)
-        .keyAccessor(function (d) {
-          return d.key[0];
-        })
-        .valueAccessor(function (d) {
-          return d.key[1];
-        })
-        .highlightedSize(4)
-        .symbolSize(3)
-        .excludedSize(2)
-        .excludedOpacity(0.5)
-        .excludedColor("#ddd");
+      // scatterLocationChart
+      //   .height(500)
+      //   .width(870)
+      //   .useCanvas(true)
+      //   .dimension(locationsDim)
+      //   .group(locationGroup)
+      //   .x(d3.scaleLinear().domain([-125, -65]))
+      //   .data(group => group.top(100000))
+      //   .brushOn(false)
+      //   .keyAccessor(function (d) {
+      //     return d.key[0];
+      //   })
+      //   .valueAccessor(function (d) {
+      //     return d.key[1];
+      //   })
+      //   .highlightedSize(4)
+      //   .symbolSize(3)
+      //   .excludedSize(2)
+      //   .excludedOpacity(0.5)
+      //   .excludedColor("#ddd");
 
       dc.renderAll();
 
