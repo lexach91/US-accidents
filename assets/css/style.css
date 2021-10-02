@@ -1,10 +1,10 @@
-.row {
+/* .row {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: nowrap;
-}
+} */
 
 /* .tick text {
     transform: rotate(45deg);
