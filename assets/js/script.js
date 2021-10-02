@@ -6,12 +6,12 @@ const dayNightChart = dc.pieChart("#day-night");
 const severityChart = dc.rowChart("#severity")
 // const scatterLocationChart = dc.scatterPlot("#scatter-location");
 
-const dataUrl = "assets/data/US_Accidents_Dec20_updated.csv";
+// const dataUrl = "assets/data/US_Accidents_Dec20_updated.csv";
 
 const parseDate = d3.timeParse("%Y-%m-%d");
 
 
-d3.csv(dataUrl)
+d3.csv("assets/data/US_Accidents_Dec20_updated.csv")
   .catch((err) => {
     throw err;
   })
