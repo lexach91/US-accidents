@@ -138,8 +138,8 @@ d3.csv("https://query.data.world/s/3cjklaknwxpa2wqy4326n6t4yiqb33")
         .section(dateGroup)
         .size(20)
         .columns(["date", "city", "county", "state", "description"])
-        .sortBy((d) => d.value)
-        .order(d3.ascending);
+        // .sortBy((d) => d.value)
+        // .order(d3.ascending);
 
       dc.renderAll();
 
