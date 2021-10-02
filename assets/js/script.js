@@ -12,6 +12,7 @@ const dataUrl =
 
   
 const parseDate = d3.timeParse("%Y-%m-%d");
+const formatDate = d3.timeFormat("%Y-%m-%d");
 
 
 d3.csv("https://query.data.world/s/3cjklaknwxpa2wqy4326n6t4yiqb33")
@@ -135,14 +136,21 @@ d3.csv("https://query.data.world/s/3cjklaknwxpa2wqy4326n6t4yiqb33")
 
       dataTable
         .dimension(dateDim)
-        .section((d) => {
-          const format = d3.format("02d");
-          return `${d.date.getFullYear()}/${format(d.date.getMonth() + 1)}`;
-        })
+        .showSections(false)
         .size(20)
-        .columns(["date", "city", "county", "state", "description"]);
-        // .sortBy((d) => d.value)
-        // .order(d3.ascending);
+        .columns([
+          {
+            label: "Date",
+            format: function (d) {
+              return formatDate(d.date);
+            },
+          },
+          "city",
+          "county",
+          "state",
+          "description",
+        ]);
+        
 
       dc.renderAll();
 
