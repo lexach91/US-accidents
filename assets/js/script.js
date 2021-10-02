@@ -4,7 +4,7 @@ const timelineChart = dc.barChart("#timeline");
 const totalNumber = dc.numberDisplay("#total-num");
 const dayNightChart = dc.pieChart("#day-night");
 const severityChart = dc.rowChart("#severity")
-// const scatterLocationChart = dc.scatterPlot("#scatter-location");
+const scatterLocationChart = dc.scatterPlot("#scatter-location");
 
 const dataUrl =
   "https://media.githubusercontent.com/media/lexach91/US-accidents/main/assets/data/US_Accidents_Dec20_updated.csv";
