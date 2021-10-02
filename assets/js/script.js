@@ -134,11 +134,11 @@ d3.csv("https://query.data.world/s/3cjklaknwxpa2wqy4326n6t4yiqb33")
       //   .excludedColor("#ddd");
 
       dataTable
-        .dimension(csData)
-        .group(all)
+        .dimension(dateDim)
+        .section(dateGroup)
         .size(20)
-        .columns(["date", "city","county","state","description"])
-        .sortBy(d => d.value)
+        .columns(["date", "city", "county", "state", "description"])
+        .sortBy((d) => d.value)
         .order(d3.ascending);
 
       dc.renderAll();
