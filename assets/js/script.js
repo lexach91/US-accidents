@@ -47,7 +47,7 @@ d3.csv("https://query.data.world/s/3cjklaknwxpa2wqy4326n6t4yiqb33")
     const accidentsByStateGroup = stateDim.group();
     const weatherGroup = weatherDim.group();
     const dateGroup = dateDim.group();
-    const temperatureGroup = temperatureDim.group();
+    const temperatureGroup = dateDim.group().reduceSum(dc.pluck("temperature"));
     const dayNightGroup = dayNightDim.group();
     const severityGroup = severityDim.group();
     // const locationGroup = locationsDim.group();
@@ -95,8 +95,10 @@ d3.csv("https://query.data.world/s/3cjklaknwxpa2wqy4326n6t4yiqb33")
       temperatureChart
         .width(1300)
         .height(400)
-        .dimension(temperatureDim)
+        .dimension(dateDim)
         .group(temperatureGroup)
+        .brushOn(false)
+        .mouseZoomable(true)
         .elasticY(true)
         .rangeChart(timelineChart)
         .renderHorizontalGridLines(true)
