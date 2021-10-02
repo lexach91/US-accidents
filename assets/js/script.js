@@ -18,20 +18,7 @@ d3.csv("https://query.data.world/s/3cjklaknwxpa2wqy4326n6t4yiqb33")
     throw err;
   })
   .then((data) => {
-    data.forEach((d) => {
-      d.amenity = JSON.parse(d.amenity.toLowerCase());
-      d.bump = JSON.parse(d.bump.toLowerCase());
-      d.crossing = JSON.parse(d.crossing.toLowerCase());
-      d.give_way = JSON.parse(d.give_way.toLowerCase());
-      d.junction = JSON.parse(d.junction.toLowerCase());
-      d.no_exit = JSON.parse(d.no_exit.toLowerCase());
-      d.railway = JSON.parse(d.railway.toLowerCase());
-      d.roundabout = JSON.parse(d.roundabout.toLowerCase());
-      d.station = JSON.parse(d.station.toLowerCase());
-      d.stop = JSON.parse(d.stop.toLowerCase());
-      d.traffic_calming = JSON.parse(d.traffic_calming.toLowerCase());
-      d.traffic_signal = JSON.parse(d.traffic_signal.toLowerCase());
-      d.turning_loop = JSON.parse(d.turning_loop.toLowerCase());
+    data.forEach((d) => {      
       d.date = parseDate(d.date.slice(0, 10));
       d.distance = +d.distance;
       d.humidity = +d.humidity;
@@ -71,10 +58,6 @@ d3.csv("https://query.data.world/s/3cjklaknwxpa2wqy4326n6t4yiqb33")
         })
         .projection(d3.geoAlbersUsa());
 
-      //   .valueAccessor(function (kv) {
-      //     // console.log(kv);
-      //     return kv.value;
-      //   });
 
       weatherChart
         .height(350)
@@ -85,10 +68,7 @@ d3.csv("https://query.data.world/s/3cjklaknwxpa2wqy4326n6t4yiqb33")
         .legend(dc.legend())
         .innerRadius(50)
         .minAngleForLabel(100);
-      // .externalLabels(30)
-      // .externalRadiusPadding(50)
-      // .drawPaths(true);
-      //   .elasticX(true);
+      
 
       timelineChart
         .width(1300)
@@ -108,22 +88,14 @@ d3.csv("https://query.data.world/s/3cjklaknwxpa2wqy4326n6t4yiqb33")
         .ticks(30);
 
       totalNumber
-        // .dimension(csData)
         .group(all)
         .valueAccessor((x) => x)
         .formatNumber(d3.format("d"));
-      // .html({
-      //     one:'%number record',
-      //     some:'%number records',
-      //     none:'no records'})
-      //   .transitionDuration(1700)
-      //   .formatNumber(d3.format("f"));
+      
 
       dayNightChart.dimension(dayNightDim).group(dayNightGroup);
 
-      severityChart
-        // .width(400)
-        // .height(500)
+      severityChart        
         .dimension(severityDim)
         .group(severityGroup)
         .ordering((d) => {
@@ -136,11 +108,7 @@ d3.csv("https://query.data.world/s/3cjklaknwxpa2wqy4326n6t4yiqb33")
           } else {
             return 3;
           }
-        })
-        // .minAngleForLabel(0);
-        // .x(d3.scaleLinear().domain([0.5,5]))
-        // .centerBar(true)
-        // .xAxis().ticks(4)
+        })        
         .elasticX(true);
 
       // scatterLocationChart
