@@ -9,10 +9,11 @@ const severityChart = dc.rowChart("#severity")
 const dataUrl =
   "https://media.githubusercontent.com/media/lexach91/US-accidents/main/assets/data/US_Accidents_Dec20_updated.csv";
 
+  
 const parseDate = d3.timeParse("%Y-%m-%d");
 
 
-d3.csv(dataUrl)
+d3.csv("https://query.data.world/s/3cjklaknwxpa2wqy4326n6t4yiqb33")
   .catch((err) => {
     throw err;
   })
