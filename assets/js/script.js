@@ -1,6 +1,7 @@
 const mapChart = dc.geoChoroplethChart("#us-map");
 const weatherChart = dc.pieChart("#weather-selector");
 const timelineChart = dc.barChart("#timeline");
+const temperatureChart = dc.lineChart("#temperature-chart");
 const totalNumber = dc.numberDisplay("#total-num");
 const dayNightChart = dc.pieChart("#day-night");
 const severityChart = dc.rowChart("#severity")
@@ -37,17 +38,19 @@ d3.csv("https://query.data.world/s/3cjklaknwxpa2wqy4326n6t4yiqb33")
 
     const stateDim = csData.dimension(dc.pluck("state"));
     const dateDim = csData.dimension(dc.pluck("date"));
+    const temperatureDim = csData.dimension(dc.pluck("temperature"));
     const weatherDim = csData.dimension(dc.pluck("weather_condition"));
     const dayNightDim = csData.dimension(dc.pluck("sunrise_sunset"));
     const severityDim = csData.dimension(dc.pluck("severity"));
-    const locationsDim = csData.dimension((d) => [d.lng, d.lat]);
+    // const locationsDim = csData.dimension((d) => [d.lng, d.lat]);
 
     const accidentsByStateGroup = stateDim.group();
     const weatherGroup = weatherDim.group();
     const dateGroup = dateDim.group();
+    const temperatureGroup = temperatureDim.group();
     const dayNightGroup = dayNightDim.group();
     const severityGroup = severityDim.group();
-    const locationGroup = locationsDim.group();
+    // const locationGroup = locationsDim.group();
 
     d3.json("assets/data/us-states.json").then((mapJson) => {
       mapChart
@@ -78,6 +81,24 @@ d3.csv("https://query.data.world/s/3cjklaknwxpa2wqy4326n6t4yiqb33")
         .dimension(dateDim)
         .group(dateGroup)
         .elasticY(true)
+        .renderHorizontalGridLines(true)
+        .renderVerticalGridLines(true)
+        .margins({ top: 30, right: 10, bottom: 30, left: 50 })
+        .x(
+          d3
+            .scaleTime()
+            .domain([dateDim.bottom(1)[0].date, dateDim.top(1)[0].date])
+        )
+        .xAxis()
+        .ticks(30);
+
+      temperatureChart
+        .width(1300)
+        .height(400)
+        .dimension(temperatureDim)
+        .group(temperatureGroup)
+        .elasticY(true)
+        .rangeChart(timelineChart)
         .renderHorizontalGridLines(true)
         .renderVerticalGridLines(true)
         .margins({ top: 30, right: 10, bottom: 30, left: 50 })
