@@ -5,6 +5,7 @@ const totalNumber = dc.numberDisplay("#total-num");
 const dayNightChart = dc.pieChart("#day-night");
 const severityChart = dc.rowChart("#severity")
 // const scatterLocationChart = dc.scatterPlot("#scatter-location");
+const dataTable = dc.dataTable("#data-table");
 
 const dataUrl =
   "https://media.githubusercontent.com/media/lexach91/US-accidents/main/assets/data/US_Accidents_Dec20_updated.csv";
@@ -131,6 +132,14 @@ d3.csv("https://query.data.world/s/3cjklaknwxpa2wqy4326n6t4yiqb33")
       //   .excludedSize(2)
       //   .excludedOpacity(0.5)
       //   .excludedColor("#ddd");
+
+      dataTable
+        .dimension(csData)
+        .group(all)
+        .size(20)
+        .columns(["date", "city","county","state","description"])
+        .sortBy(d => d.value)
+        .order(d3.ascending);
 
       dc.renderAll();
 
