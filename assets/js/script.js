@@ -135,9 +135,12 @@ d3.csv("https://query.data.world/s/3cjklaknwxpa2wqy4326n6t4yiqb33")
 
       dataTable
         .dimension(dateDim)
-        .section(dateGroup)
+        .section((d) => {
+          const format = d3.format("02d");
+          return `${d.date.getFullYear()}/${format(d.date.getMonth() + 1)}`;
+        })
         .size(20)
-        .columns(["date", "city", "county", "state", "description"])
+        .columns(["date", "city", "county", "state", "description"]);
         // .sortBy((d) => d.value)
         // .order(d3.ascending);
 
