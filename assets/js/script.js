@@ -7,7 +7,7 @@ const severityChart = dc.rowChart("#severity")
 // const scatterLocationChart = dc.scatterPlot("#scatter-location");
 
 const dataUrl =
-  "https://github.com/lexach91/US-accidents/blob/main/assets/data/US_Accidents_Dec20_updated.csv";
+  "https://media.githubusercontent.com/media/lexach91/US-accidents/main/assets/data/US_Accidents_Dec20_updated.csv";
 
 const parseDate = d3.timeParse("%Y-%m-%d");
 
