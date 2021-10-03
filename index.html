@@ -24,7 +24,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <!-- DC css -->
+    <!-- DC, bootstrap css -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/dc/4.2.7/style/dc.min.css"
@@ -32,6 +33,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    
 
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
@@ -40,17 +42,32 @@
       <img src="assets/images/loading.gif" alt="Animated loading icon" />
       <h3>Loading data, please wait...</h3>
     </div>
-    <!-- <div class="row">
-    </div> -->
-    <div id="total-num"></div>
-    <div id="us-map"></div>
-    <!-- <div id="scatter-location"></div> -->
-    <div id="weather-selector"></div>
-    <div id="timeline"></div>
-    <div id="temperature-chart"></div>
-    <div id="day-night"></div>
-    <div id="severity"></div>
-    <div id="data-table"></div>
+    <div class="container">
+        <h1 id="heading">Traffic accidents in USA 2016-2020</h1>
+        <div class="first-section">
+            <div class="map-holder" id="us-map"></div>
+            <div class="selectors">
+                <div id="total-num">
+                    <h5>Number of selected accidents</h3>
+                </div>
+                <div id="weather-selector"></div>
+            </div>
+        </div>
+        
+        <div id="timeline"></div>
+
+        <div class="tops">
+            <div id="top-states"></div>
+            <div id="top-counties"></div>
+            <div id="top-cities"></div>
+        </div>
+        <div class="second-section">
+            <div id="severity"></div>
+            <div id="day-night"></div>
+        </div>
+        <table id="data-table"></table>
+
+    </div>
 
     <script src="assets/js/script.js"></script>
   </body>
