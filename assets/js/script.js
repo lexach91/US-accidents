@@ -1,9 +1,10 @@
+dc.config.defaultColors(d3.schemeCategory10);
 const mapChart = dc.geoChoroplethChart("#us-map");
 const weatherChart = dc.pieChart("#weather-selector");
 const timelineChart = dc.barChart("#timeline");
 const totalNumber = dc.numberDisplay("#total-num");
 const dayNightChart = dc.pieChart("#day-night");
-const severityChart = dc.rowChart("#severity")
+const severityChart = dc.rowChart("#severity");
 const topStatesChart = dc.rowChart("#top-states");
 const topCountiesChart = dc.rowChart("#top-counties");
 const topCitiesChart = dc.rowChart("#top-cities");
@@ -12,10 +13,8 @@ const dataTable = dc.dataTable("#data-table");
 const dataUrl = "https://query.data.world/s/3cjklaknwxpa2wqy4326n6t4yiqb33";
 // const dataUrl = "assets/data/US_Accidents_Dec20_updated.csv";
 
-  
 const parseDate = d3.timeParse("%Y-%m-%d");
 const formatDate = d3.timeFormat("%Y-%m-%d");
-
 
 d3.csv(dataUrl)
   .catch((err) => {
@@ -43,7 +42,7 @@ d3.csv(dataUrl)
     const dayNightDim = csData.dimension(dc.pluck("sunrise_sunset"));
     const severityDim = csData.dimension(dc.pluck("severity"));
     const statesDim = csData.dimension(dc.pluck("state"));
-    const countiesDim = csData.dimension(dc.pluck("county"))
+    const countiesDim = csData.dimension(dc.pluck("county"));
     const citiesDim = csData.dimension(dc.pluck("city"));
 
     const accidentsByStateGroup = stateDim.group();
@@ -86,7 +85,7 @@ d3.csv(dataUrl)
         .data((group) => group.top(10))
         .elasticX(true)
         .useViewBoxResizing(true);
-        
+
       topCountiesChart
         .height(700)
         .width(900)
@@ -95,7 +94,7 @@ d3.csv(dataUrl)
         .data((group) => group.top(10))
         .elasticX(true)
         .useViewBoxResizing(true);
-        
+
       topCitiesChart
         .height(700)
         .width(900)
@@ -104,7 +103,6 @@ d3.csv(dataUrl)
         .data((group) => group.top(10))
         .elasticX(true)
         .useViewBoxResizing(true);
-
 
       timelineChart
         .width(1300)
@@ -125,7 +123,6 @@ d3.csv(dataUrl)
         .xAxis()
         .ticks(30);
 
-      
       totalNumber
         .group(all)
         .valueAccessor((x) => x)
@@ -157,7 +154,6 @@ d3.csv(dataUrl)
         .elasticX(true)
         .useViewBoxResizing(true);
 
-      
       dataTable
         .dimension(dateDim)
         .showSections(false)
@@ -176,7 +172,6 @@ d3.csv(dataUrl)
           "description",
         ])
         .useViewBoxResizing(true);
-
 
       dc.renderAll();
 
