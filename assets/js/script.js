@@ -10,28 +10,19 @@ const topCountiesChart = dc.rowChart("#top-counties");
 const topCitiesChart = dc.rowChart("#top-cities");
 const dataTable = dc.dataTable("#data-table");
 
-const dataUrl = "https://query.data.world/s/3cjklaknwxpa2wqy4326n6t4yiqb33";
-// const dataUrl = "assets/data/US_Accidents_Dec20_updated.csv";
+const dataUrl = "https://query.data.world/s/5c54uvvfqkeg6vtct5tquymi4nbe7f";
 
 const parseDate = d3.timeParse("%Y-%m-%d");
 const formatDate = d3.timeFormat("%Y-%m-%d");
 
 d3.csv(dataUrl)
   .catch((err) => {
+    document.getElementById("error").style.display = "block";
     throw err;
   })
   .then((data) => {
     data.forEach((d) => {
       d.date = parseDate(d.date.slice(0, 10));
-      d.distance = +d.distance;
-      d.humidity = +d.humidity;
-      d.pressure = +d.pressure;
-      d.severity = +d.severity;
-      d.temperature = +d.temperature;
-      d.visibility = +d.visibility;
-      d.wind_speed = +d.wind_speed;
-      d.lat = +d.lat;
-      d.lng = +d.lng;
     });
     const csData = crossfilter(data);
     const all = csData.groupAll();
@@ -64,6 +55,14 @@ d3.csv(dataUrl)
           return d.properties.name;
         })
         .projection(d3.geoAlbersUsa())
+        .title(function (d) {
+          return (
+            "State: " +
+            d.key +
+            "\nNumber of accidents: " +
+            (d.value ? d.value : 0)
+          );
+        })
         .useViewBoxResizing(true);
 
       weatherChart
@@ -75,6 +74,15 @@ d3.csv(dataUrl)
         .legend(dc.legend())
         .innerRadius(50)
         .minAngleForLabel(100)
+        .cx(350)
+        .title(function (d) {
+          return (
+            "Weather conditions: " +
+            d.key +
+            "\nNumber of accidents: " +
+            (d.value ? d.value : 0)
+          );
+        })
         .useViewBoxResizing(true);
 
       topStatesChart
@@ -84,7 +92,17 @@ d3.csv(dataUrl)
         .group(statesGroup)
         .data((group) => group.top(10))
         .elasticX(true)
-        .useViewBoxResizing(true);
+        .title(function (d) {
+          return (
+            "State: " +
+            d.key +
+            "\nNumber of accidents: " +
+            (d.value ? d.value : 0)
+          );
+        })
+        .useViewBoxResizing(true)
+        .xAxis()
+        .ticks(6);
 
       topCountiesChart
         .height(700)
@@ -93,7 +111,17 @@ d3.csv(dataUrl)
         .group(countiesGroup)
         .data((group) => group.top(10))
         .elasticX(true)
-        .useViewBoxResizing(true);
+        .title(function (d) {
+          return (
+            "County: " +
+            d.key +
+            "\nNumber of accidents: " +
+            (d.value ? d.value : 0)
+          );
+        })
+        .useViewBoxResizing(true)
+        .xAxis()
+        .ticks(6);
 
       topCitiesChart
         .height(700)
@@ -102,7 +130,17 @@ d3.csv(dataUrl)
         .group(citiesGroup)
         .data((group) => group.top(10))
         .elasticX(true)
-        .useViewBoxResizing(true);
+        .title(function (d) {
+          return (
+            "City: " +
+            d.key +
+            "\nNumber of accidents: " +
+            (d.value ? d.value : 0)
+          );
+        })
+        .useViewBoxResizing(true)
+        .xAxis()
+        .ticks(6);
 
       timelineChart
         .width(1300)
@@ -112,7 +150,6 @@ d3.csv(dataUrl)
         .elasticY(true)
         .renderHorizontalGridLines(true)
         .renderVerticalGridLines(true)
-        // .mouseZoomable(true)
         .useViewBoxResizing(true)
         .margins({ top: 30, right: 10, bottom: 30, left: 50 })
         .x(
@@ -129,11 +166,19 @@ d3.csv(dataUrl)
         .formatNumber(d3.format("d"));
 
       dayNightChart
-        .height(300)
+        .height(250)
         .width(300)
         .dimension(dayNightDim)
-        .group(dayNightGroup)
-        .useViewBoxResizing(true);
+        .title(function (d) {
+          return (
+            "Time of a day: " +
+            d.key +
+            "\nNumber of accidents: " +
+            (d.value ? d.value : 0)
+          );
+        })
+          .group(dayNightGroup)
+          .useViewBoxResizing(true);
 
       severityChart
         .height(300)
@@ -141,17 +186,25 @@ d3.csv(dataUrl)
         .dimension(severityDim)
         .group(severityGroup)
         .ordering((d) => {
-          if (d.value == 1) {
+          if (d.key == "Little or no impact") {
             return 0;
-          } else if (d.value === 2) {
+          } else if (d.key == "Light impact") {
             return 1;
-          } else if (d.value === 3) {
+          } else if (d.key == "Medium impact") {
             return 2;
           } else {
             return 3;
           }
         })
         .elasticX(true)
+        .title(function (d) {
+          return (
+            "Severity of an impact on traffic: " +
+            d.key +
+            "\nNumber of accidents: " +
+            (d.value ? d.value : 0)
+          );
+        })
         .useViewBoxResizing(true);
 
       dataTable
@@ -166,10 +219,10 @@ d3.csv(dataUrl)
               return formatDate(d.date);
             },
           },
-          "city",
-          "county",
           "state",
-          "description",
+          "county",
+          "city",
+          "description"
         ])
         .useViewBoxResizing(true);
 

@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!-- DC, Crossfilter scripts -->
+    <title>USA Traffic Accidents</title>
+    <!-- D3, DC, Crossfilter scripts -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.4/d3.min.js"
       integrity="sha512-T+1zstV6Llwh/zH+uoc1rJ7Y8tf9N+DiC0T3aL0+0blupn5NkBT52Avsa0l+XBnftn/14EtxpsztAWsmiAaqfQ=="
@@ -24,8 +24,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <!-- DC, bootstrap css -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> -->
+    <!-- DC css -->
+    
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/dc/4.2.7/style/dc.min.css"
@@ -41,33 +41,92 @@
     <div id="loader">
       <img src="assets/images/loading.gif" alt="Animated loading icon" />
       <h3>Loading data, please wait...</h3>
+      <p id="error">Something went wrong. Please, refresh the page.</p>
     </div>
-    <div class="container">
-        <h1 id="heading">Traffic accidents in USA 2016-2020</h1>
-        <div class="first-section">
-            <div class="map-holder" id="us-map"></div>
+    <main class="container">
+        <header>
+            <h1 id="heading">Traffic accidents in USA 2016-2020</h1>
+        </header>
+        <section class="first-section">
+            <div class="map-holder" id="us-map">
+                <h4>Accidents Distribution by States</h4>
+                <a class="reset" href="javascript:mapChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
+
+                <div class="clearfix"></div>
+            </div>
             <div class="selectors">
                 <div id="total-num">
                     <h5>Number of selected accidents</h3>
                 </div>
-                <div id="weather-selector"></div>
+                <div id="weather-selector">
+                    <h4>Weather conditions</h4>
+                    <a class="reset" href="javascript:weatherChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                    <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
+
+                    <div class="clearfix"></div>
+                </div>
             </div>
-        </div>
-        
-        <div id="timeline"></div>
+        </section>
+        <section>
+            <div id="timeline">
+                <h4>Accidents Distribution by Date</h4>
+                        <a class="reset" href="javascript:timelineChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                        <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
+    
+                        <div class="clearfix"></div>
+            </div>
+        </section>
 
-        <div class="tops">
-            <div id="top-states"></div>
-            <div id="top-counties"></div>
-            <div id="top-cities"></div>
-        </div>
-        <div class="second-section">
-            <div id="severity"></div>
-            <div id="day-night"></div>
-        </div>
-        <table id="data-table"></table>
+        <section>
+            <div class="tops">
+                <div id="top-states">
+                    <h4>Top 10 States</h4>
+                        <a class="reset" href="javascript:topStatesChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                        <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
+    
+                        <div class="clearfix"></div>
+                </div>
+                <div id="top-counties">
+                    <h4>Top 10 Counties</h4>
+                        <a class="reset" href="javascript:topCountiesChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                        <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
+    
+                        <div class="clearfix"></div>
+                </div>
+                <div id="top-cities">
+                    <h4>Top 10 Cities</h4>
+                        <a class="reset" href="javascript:topCitiesChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                        <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
+    
+                        <div class="clearfix"></div>
+                </div>
+            </div>
 
-    </div>
+        </section>
+        <section class="second-section">
+            <div id="severity">
+                <h4>Severity of an Impact on Traffic</h4>
+                    <a class="reset" href="javascript:severityChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                    <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
+
+                    <div class="clearfix"></div>
+            </div>
+            <div id="day-night">
+                <h4>Time af a day during accident</h4>
+                    <a class="reset" href="javascript:dayNightChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                    <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
+
+                    <div class="clearfix"></div>
+            </div>
+        </section>
+        <section>
+            <table id="data-table">
+                <h4>Top 20 accidents by selected filters</h4>
+            </table>
+        </section>
+
+    </main>
 
     <script src="assets/js/script.js"></script>
   </body>
