@@ -212,6 +212,46 @@ tr:nth-child(even) {
     background-color: #432E36;
 }
 
+footer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #432E36;
+    padding: 1em;
+    line-height: 1.5;
+}
+
+footer ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: .5em;
+}
+
+
+.library-logo {
+    width: 2.5em;
+    padding: 0.5em;
+    transition: transform 200ms ease-in-out;
+}
+
+.library-logo:hover {
+    transform: scale(1.2);
+}
+
+footer i {
+    transition: transform 200ms ease-in-out;
+    font-size: 1.5em;
+}
+footer i:hover {
+    transform: scale(1.2);
+
+}
+
 @media screen and (max-width: 1100px) {
     .first-section {
         flex-direction: column-reverse;

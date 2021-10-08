@@ -2,10 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="description" content="A webpage with data visualization of USA traffic accidents statistic 2016-2020 using interactive charts">
+    <meta name="keywords" content="Traffic accidents, USA accidents, USA traffic, data visualization, DC.js, crossfilter.js, D3.js, charts, statistics">
+    <meta name="author" content="Aleksei Konovalov" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>USA Traffic Accidents</title>
+
     <!-- D3, DC, Crossfilter scripts -->
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.4/d3.min.js"
       integrity="sha512-T+1zstV6Llwh/zH+uoc1rJ7Y8tf9N+DiC0T3aL0+0blupn5NkBT52Avsa0l+XBnftn/14EtxpsztAWsmiAaqfQ=="
@@ -24,6 +29,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+
     <!-- DC css -->
     
     <link
@@ -33,6 +39,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/8e4b08b302.js" crossorigin="anonymous"></script>
     
 
     <link rel="stylesheet" href="assets/css/style.css" />
@@ -127,6 +136,34 @@
         </section>
 
     </main>
+    <footer>
+        <div>
+            <p>Data has been obtained from <a target="_blank" href="https://www.kaggle.com/" rel="noopener noreferrer">Kaggle.com</a></p>
+            <p>Dataset link: <a href="https://www.kaggle.com/sobhanmoosavi/us-accidents?select=US_Accidents_Dec20_updated.csv" target="_blank" rel="noopener noreferrer">US Accidents</a></p>
+            <p>Libraries used:
+                <ul>
+                    <li><a href="https://d3js.org/" target="_blank" rel="noopener noreferrer"><img class="library-logo" src="assets/images/d3.svg" alt="d3.js logo"></a></li>
+                
+                    <li><a href="https://dc-js.github.io/dc.js/" target="_blank" rel="noopener noreferrer"><img class="library-logo" src="assets/images/dc.png" alt="dc.js logo"></a></li>
+                
+                    <li><a href="https://square.github.io/crossfilter/" target="_blank" rel="noopener noreferrer"><img class="library-logo" src="assets/images/crossfilter.png" alt="crossfilter.js logo"></a></li>
+                </ul>
+            </p>
+
+        </div>
+        <div>
+            <p>Website by Aleksei Konovalov &copy; 2021</p>
+            <p>Find me on:
+                <ul>
+                    <li><a href="https://github.com/lexach91" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/aleksei-konovalov/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="https://www.facebook.com/Lexach91" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="https://vk.com/lexach91" target="_blank" rel="noopener noreferrer"><i class="fab fa-vk"></i></a></li>
+                </ul>
+                
+            </p>
+        </div>
+    </footer>
 
     <script src="assets/js/script.js"></script>
   </body>
