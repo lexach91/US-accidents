@@ -9,9 +9,10 @@ const topStatesChart = dc.rowChart("#top-states");
 const topCountiesChart = dc.rowChart("#top-counties");
 const topCitiesChart = dc.rowChart("#top-cities");
 const dataTable = dc.dataTable("#data-table");
+const dayOfWeekChart = dc.rowChart("#day-of-week-chart");
 
 const dataUrl = "https://query.data.world/s/5c54uvvfqkeg6vtct5tquymi4nbe7f";
-
+// 2016-02-08 00:37:08
 const parseDate = d3.timeParse("%Y-%m-%d");
 const formatDate = d3.timeFormat("%Y-%m-%d");
 
@@ -22,7 +23,7 @@ d3.csv(dataUrl)
   })
   .then((data) => {
     data.forEach((d) => {
-      d.date = parseDate(d.date.slice(0, 10));
+      d.date = parseDate(d.date.slice(0,10));
     });
     const csData = crossfilter(data);
     const all = csData.groupAll();
@@ -35,6 +36,11 @@ d3.csv(dataUrl)
     const statesDim = csData.dimension(dc.pluck("state"));
     const countiesDim = csData.dimension(dc.pluck("county"));
     const citiesDim = csData.dimension(dc.pluck("city"));
+    const dayOfWeekDim = csData.dimension(d => {
+      const day = d.date.getDay();
+      const week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      return week[day];
+    });
 
     const accidentsByStateGroup = stateDim.group();
     const weatherGroup = weatherDim.group();
@@ -44,6 +50,8 @@ d3.csv(dataUrl)
     const statesGroup = statesDim.group();
     const countiesGroup = countiesDim.group();
     const citiesGroup = citiesDim.group();
+    const dayOfWeekGroup = dayOfWeekDim.group();
+
 
     d3.json("assets/data/us-states.json").then((mapJson) => {
       mapChart
@@ -210,7 +218,7 @@ d3.csv(dataUrl)
       dataTable
         .dimension(dateDim)
         .showSections(false)
-        .size(20)
+        .size(30)
         .useViewBoxResizing(true)
         .columns([
           {
@@ -226,9 +234,38 @@ d3.csv(dataUrl)
         ])
         .useViewBoxResizing(true);
 
+        dayOfWeekChart
+          .height(400)
+          .width(1000)
+          .dimension(dayOfWeekDim)
+          .group(dayOfWeekGroup)
+          .elasticX(true)
+          .ordering((d) => {
+            const order = {
+              Sunday: 0,
+              Monday: 1,
+              Tuesday: 2,
+              Wednesday: 3,
+              Thursday: 4,
+              Friday: 5,
+              Saturday: 6,
+            };
+            return order[d.key];
+          })
+          .title(function (d) {
+            return (
+              "Day of a week: " +
+              d.key +
+              "\nNumber of accidents: " +
+              (d.value ? d.value : 0)
+            );
+          })
+          .useViewBoxResizing(true);
+
       dc.renderAll();
 
       document.getElementById("loader").style.display = "none";
       document.getElementsByClassName("container")[0].style.display = "block";
+      document.getElementsByTagName("footer")[0].style.display = "flex";
     });
   });

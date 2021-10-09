@@ -1,16 +1,41 @@
+/* importing google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@300;400&display=swap');
 
+/* font css variables */
 :root {
     --font-primary: 'Ubuntu', sans-serif;
     --font-secondary: 'Roboto', sans-serif;
 }
 
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+    width: 13px;
+    height: 13px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #291C21;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #664752;
+}
+
+::-webkit-scrollbar-track {
+    background: #260C1A;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 0px 0px #F0F0F0;
+}
+
+/* Reset default margin, padding, and box sizing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body styles */
 body {
     text-align: center;
     background: #260C1A;
@@ -20,6 +45,7 @@ body {
     overflow-x: hidden;
 }
 
+/* Main container styles */
 .container {
     max-width: 1500px;
     margin: 0 auto;
@@ -27,17 +53,39 @@ body {
     background-color: rgba(255,255,255,0.05)
 }
 
+/* Changing default dc.js css properties for chart axis */
 .axis path,
 .axis line {
     stroke: white !important;
 }
 
+
+/* Headings styles */
 #heading {
     font-size: 200%;
     padding: 20px;
     margin-bottom: 20px;
 }
 
+h4 {
+    padding: .5em;
+    margin-bottom: .5em;
+    display: inline-block;
+    letter-spacing: 1.2px;
+    font-size: 1.2em;
+}
+
+h4 span {
+    font-size: .8em;
+    opacity: 0.9;
+}
+
+a {
+    color: yellowgreen;
+}
+
+
+/* Styles for the loader */
 #loader {
     width: 100vw;
     height: 100vh;
@@ -51,26 +99,32 @@ body {
     flex-direction: column;
 }
 
+/* Hiding error message by default */
 #error {
     display: none;
 }
 
-.first-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+/* Styles for all sections */
+section {
     width: 95%;
-    align-items: center;
     margin: 0 auto;
     margin-bottom: 100px;
     border: 2px solid #432E36;
     border-radius: 5px;
+    padding: .5em;
+}
+
+/* Head section styles */
+#head-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .map-holder {
     width: 60%;
     height: 100%;
-
 }
 
 #us-map .layer0 {
@@ -112,39 +166,15 @@ body {
     transform: translate(0, 10px) !important;
 }
 
-#timeline {
-    width: 95%;
-    margin: 0 auto;
-    margin-bottom: 100px;
-    border: 2px solid #432E36;
-    border-radius: 5px;
-}
-
-h4 {
-    padding: .5em;
-    margin-bottom: .5em;
-    display: inline-block;
-    letter-spacing: 1.2px;
-    font-size: 1.2em;
-}
-
-a {
-   color: yellowgreen; 
-}
-
-.tops {
+/* Styles for the section with graphs for top 10 states, counties, and cities */
+#tops-section {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    width: 95%;
-    margin: 0 auto;
-    margin-bottom: 100px;
-    border: 2px solid #432E36;
-    border-radius: 5px;
 }
 
-.tops div {
+#tops-section div {
     height: 100%;
     width: 100%;
 }
@@ -167,16 +197,12 @@ a {
     
 }
 
-.second-section {
-    padding: 1em 0;
+/* Styles for section with severity chart, and day-night pie chart */
+#severity-section {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 95%;
-    border: 2px solid #432E36;
-    border-radius: 5px;
-    margin: 0 auto;
     margin-bottom: 100px;
 }
 
@@ -189,15 +215,23 @@ a {
     height: 100%;
 }
 
-#data-table {
-    width: 95%;
-    margin: 1em auto;
-    border: 2px solid #432E36;
-    border-radius: 5px;
-    font-family: var(--font-secondary);
+/* Table section styles */
+#table-section {
+    margin-bottom: 0;
+    padding-bottom: 1em;
 }
 
+#data-table {
+    margin: 1em auto;
+    font-family: var(--font-secondary);
+    width: 100%;
+    border: 2px solid #432E36;
+    border-radius: 5px;
+}
 
+tr:hover {
+    opacity: .8;
+}
 
 td, th {
     border: 1px solid #432E36;
@@ -212,11 +246,12 @@ tr:nth-child(even) {
     background-color: #432E36;
 }
 
+/* Footer styles */
 footer {
-    display: flex;
+    display: none;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 100%;
     background-color: #432E36;
     padding: 1em;
@@ -245,17 +280,23 @@ footer ul {
 
 footer i {
     transition: transform 200ms ease-in-out;
-    font-size: 1.5em;
+    font-size: 1.45em;
+    width: 2.5em;
+    padding: 0.5em;
 }
 footer i:hover {
     transform: scale(1.2);
 
 }
 
+/* Media query for tablets and mobile devices */
 @media screen and (max-width: 1100px) {
-    .first-section {
-        flex-direction: column-reverse;
+    section {
         margin-bottom: 20px;
+    }
+
+    #head-section {
+        flex-direction: column-reverse;
         border: none;
     }
 
@@ -270,23 +311,18 @@ footer i:hover {
         width: 100%;
     }
 
-    #timeline {
-        margin-bottom: 20px;
-    }
 
     #timeline text {
-        font-size: 15px !important;
+        font-size: 16px !important;
     }
 
 
-    .tops {
+    #tops-section {
         flex-direction: column;
-        margin-bottom: 20px;
     }
 
-    .second-section {
+    #severity-section {
         flex-direction: column;
-        margin-bottom: 20px;
     }
 
     #severity {
@@ -298,7 +334,14 @@ footer i:hover {
     }
 
     #day-night {
-        width: 100%;
+        width: 60%;
+    }
+
+    #day-of-week-chart text {
+        font-size: 15px !important;
+    }
+    #day-of-week-chart .row text {
+        font-size: 20px !important;
     }
 
     #table-section {

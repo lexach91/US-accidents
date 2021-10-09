@@ -56,77 +56,84 @@
         <header>
             <h1 id="heading">Traffic accidents in USA 2016-2020</h1>
         </header>
-        <section class="first-section">
+        <section id="head-section">
             <div class="map-holder" id="us-map">
-                <h4>Accidents Distribution by States</h4>
+                <h4>Accidents Distribution by States
                 <a class="reset" href="javascript:mapChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
-                <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
+                <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span></h4>
 
                 <div class="clearfix"></div>
             </div>
             <div class="selectors">
                 <div id="total-num">
-                    <h5>Number of selected accidents</h3>
+                    <h5>Number of selected accidents</h5>
                 </div>
                 <div id="weather-selector">
-                    <h4>Weather conditions</h4>
+                    <h4>Weather conditions
                     <a class="reset" href="javascript:weatherChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
-                    <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
+                    <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span></h4>
 
                     <div class="clearfix"></div>
                 </div>
             </div>
         </section>
-        <section>
+        <section id="timeline-section">
             <div id="timeline">
-                <h4>Accidents Distribution by Date</h4>
+                <h4>Accidents Distribution by Date
                         <a class="reset" href="javascript:timelineChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
-                        <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
+                        <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span></h4>
     
                         <div class="clearfix"></div>
             </div>
         </section>
 
-        <section>
-            <div class="tops">
+        <section id="tops-section">
                 <div id="top-states">
-                    <h4>Top 10 States</h4>
+                    <h4>Top 10 States
                         <a class="reset" href="javascript:topStatesChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
-                        <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
+                        <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span></h4>
     
                         <div class="clearfix"></div>
                 </div>
                 <div id="top-counties">
-                    <h4>Top 10 Counties</h4>
+                    <h4>Top 10 Counties
                         <a class="reset" href="javascript:topCountiesChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
-                        <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
+                        <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span></h4>
     
                         <div class="clearfix"></div>
                 </div>
                 <div id="top-cities">
-                    <h4>Top 10 Cities</h4>
+                    <h4>Top 10 Cities
                         <a class="reset" href="javascript:topCitiesChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
-                        <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
+                        <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span></h4>
     
                         <div class="clearfix"></div>
                 </div>
-            </div>
 
         </section>
-        <section class="second-section">
+        <section id="severity-section">
             <div id="severity">
-                <h4>Severity of an Impact on Traffic</h4>
+                <h4>Severity of an Impact on Traffic
                     <a class="reset" href="javascript:severityChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
-                    <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
+                    <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span></h4>
 
                     <div class="clearfix"></div>
             </div>
             <div id="day-night">
-                <h4>Time of a day during accident</h4>
+                <h4>Time of a day during accident
                     <a class="reset" href="javascript:dayNightChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
-                    <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span>
+                    <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span></h4>
 
                     <div class="clearfix"></div>
+            </div>
+        </section>
+        <section id="weekday-section">
+            <div id="day-of-week-chart">
+                <h4>Accidents by day of a week
+                        <a class="reset" href="javascript:dayOfWeekChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+                        <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span></h4>
+    
+                        <div class="clearfix"></div>
             </div>
         </section>
         <section id="table-section">
@@ -134,6 +141,7 @@
                 <h4>Top 20 accidents by selected filters</h4>
             </table>
         </section>
+        <br>
 
     </main>
     <footer>
@@ -152,7 +160,8 @@
 
         </div>
         <div>
-            <p>Website by Aleksei Konovalov &copy; 2021</p>
+            <p>Website created by Aleksei Konovalov &copy; 2021</p>
+            <p>This is my milestone project for <a href="https://codeinstitute.net/" target="_blank" rel="noopener noreferrer">Code Institute</a></p>
             <p>Find me on:
                 <ul>
                     <li><a href="https://github.com/lexach91" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></li>
