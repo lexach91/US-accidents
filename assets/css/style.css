@@ -322,6 +322,10 @@ footer i:hover {
         width: 100%;
     }
 
+    #weather-selector svg {
+        width: 70%;
+    }
+
 
     #timeline text {
         font-size: 16px !important;
@@ -332,8 +336,19 @@ footer i:hover {
         flex-direction: column;
     }
 
+    #tops-section div {
+        margin: 2em auto;
+    }
+
+    #tops-section svg {
+        width: 80%;
+    }
     #severity-section {
         flex-direction: column;
+    }
+
+    #severity-section div {
+        margin: 2em auto;
     }
 
     #severity {
@@ -368,6 +383,26 @@ footer i:hover {
     footer {
         flex-direction: column;
         line-height: 1.2;
+    }
+
+    #head-section {
+        padding: 0;
+    }
+
+    #weather-selector svg {
+        width: 100% !important;
+    }
+
+    #tops-section div {
+        margin: .5em auto;
+    }
+
+    #tops-section svg {
+        width: 100%;
+    }
+
+    #severity-section div {
+        margin: .5em auto;
     }
 
 }
