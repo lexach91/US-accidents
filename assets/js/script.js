@@ -293,6 +293,7 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
       // Hiding the loader and displaying the page after all charts are drawn
       document.getElementById("loader").style.display = "none";
       document.getElementsByClassName("container")[0].style.display = "block";
+      document.getElementsByTagName("header")[0].style.display = "block";
       document.getElementsByTagName("footer")[0].style.display = "flex";
     });
   });
