@@ -44,6 +44,13 @@ body {
     font-family: var(--font-primary);
     overflow-x: hidden;
 }
+/* Header styles */
+
+header {
+    max-width: 1500px;
+    background-color: rgba(255, 255, 255, 0.05);
+    margin: 0 auto;
+}
 
 /* Main container styles */
 .container {
@@ -63,8 +70,8 @@ body {
 /* Headings styles */
 #heading {
     font-size: 200%;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 40px;
+    /* margin-bottom: 20px; */
 }
 
 h4 {
@@ -285,7 +292,7 @@ footer i {
     transition: transform 200ms ease-in-out;
     font-size: 1.45em;
     width: 2em;
-    /* padding: 0.5em; */
+    padding: 0.5em;
 }
 footer i:hover {
     transform: scale(1.2);
