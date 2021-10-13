@@ -10,9 +10,9 @@
 
 ## Technologies used
 
-- HTML
-- CSS
-- Javascript
+- [HTML](https://en.wikipedia.org/wiki/HTML)
+- [CSS](https://en.wikipedia.org/wiki/CSS)
+- [Javascript](https://en.wikipedia.org/wiki/JavaScript)
 - [D3.js library](https://d3js.org/)
 - [DC.js library](https://dc-js.github.io/dc.js/)
 - [Crossfilter library](https://square.github.io/crossfilter/)
@@ -263,7 +263,8 @@
         - After some research, I found the resource [Data.world](https://data.world/). There I could host the dataset for free.
 
 - ##### Unsolved bugs:
-    + The Website doesn't work on the mobile version of Brave browser. The reason remains unknown. But other mobile browsers, such as Google Chrome, Opera, and Firefox, don't have such an issue.
+
+    + The Website doesn't work on the mobile version of Brave browser. The reason remains unknown to me. But other mobile browsers, such as Google Chrome, Opera, and Firefox, don't have such an issue.
 
 ---
 
@@ -314,7 +315,7 @@ The live link to the Website can be found here - [US Traffic Accidents](https://
 
 - Dataset was cleaned from unused columns to reduce its size and hosted on [Data.world](https://data.world/lexach91/us-accidentsupdated)
 
-- Acknowledgements:
+##### Acknowledgements:
     
     + Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, and Rajiv Ramnath. ["A Countrywide Traffic Accident Dataset."](https://arxiv.org/abs/1906.05409), 2019.
 
