@@ -2,13 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="A webpage with data visualization of USA traffic accidents statistic 2016-2020 using interactive charts">
-    <meta name="keywords" content="Traffic accidents, USA accidents, USA traffic, data visualization, DC.js, crossfilter.js, D3.js, charts, statistics">
+    <meta
+      name="description"
+      content="A webpage with data visualization of USA traffic accidents statistic 2016-2020 using interactive charts"
+    />
+    <meta
+      name="keywords"
+      content="Traffic accidents, USA accidents, USA traffic, data visualization, DC.js, crossfilter.js, D3.js, charts, statistics"
+    />
     <meta name="author" content="Aleksei Konovalov" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>USA Traffic Accidents</title>
-    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.ico"
+      type="image/x-icon"
+    />
     <!-- D3, DC, Crossfilter scripts -->
 
     <script
@@ -31,7 +41,7 @@
     ></script>
 
     <!-- DC css -->
-    
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/dc/4.2.7/style/dc.min.css"
@@ -41,140 +51,352 @@
     />
 
     <!-- Font awesome -->
-    <script src="https://kit.fontawesome.com/8e4b08b302.js" crossorigin="anonymous"></script>
-    
-    
+    <script
+      src="https://kit.fontawesome.com/8e4b08b302.js"
+      crossorigin="anonymous"
+    ></script>
+
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-      <!-- Loader will be displayed until data is fetched and graphs are drawn -->
+    <!-- Loader will be displayed until data is fetched and graphs are drawn -->
     <div id="loader">
       <img src="assets/images/loading.gif" alt="Animated loading icon" />
       <h3>Loading data, please wait...</h3>
-      <br>
+      <br />
       <p id="error">Something went wrong. Please, refresh the page.</p>
     </div>
     <header>
-        <h1 id="heading">Traffic accidents in USA 2016-2020</h1>
+      <h1 id="heading">Traffic accidents in USA 2016-2020</h1>
     </header>
 
     <main class="container">
-        <section id="head-section">
-            <div class="map-holder" id="us-map">
-                <h4>Accidents Distribution by States
-                <a class="reset" href="javascript:mapChart.filterAll();dc.redrawAll();" style="display: none;" aria-label="Reset all filters for this chart">reset</a>
-                <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span></h4>
+      <section id="head-section">
+        <div class="map-holder" id="us-map">
+          <h4>
+            Accidents Distribution by States
+            <a
+              class="reset"
+              href="javascript:mapChart.filterAll();dc.redrawAll();"
+              style="display: none"
+              aria-label="Reset all filters for this chart"
+            >
+              reset
+            </a>
+            <span class="reset" style="display: none">
+              | Current filter:
+              <span class="filter"></span>
+            </span>
+          </h4>
 
-                <div class="clearfix"></div>
-            </div>
-            <div class="selectors">
-                <div id="total-num">
-                    <h5>Number of selected accidents</h5>
-                </div>
-                <div id="weather-selector">
-                    <h4>Weather conditions
-                    <a class="reset" href="javascript:weatherChart.filterAll();dc.redrawAll();" style="display: none;" aria-label="Reset all filters for this chart">reset</a>
-                    <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span></h4>
+          <div class="clearfix"></div>
+        </div>
+        <div class="selectors">
+          <div id="total-num">
+            <h5>Number of selected accidents</h5>
+          </div>
+          <div id="weather-selector">
+            <h4>
+              Weather conditions
+              <a
+                class="reset"
+                href="javascript:weatherChart.filterAll();dc.redrawAll();"
+                style="display: none"
+                aria-label="Reset all filters for this chart"
+              >
+                reset
+              </a>
+              <span class="reset" style="display: none">
+                | Current filter:
+                <span class="filter"></span>
+              </span>
+            </h4>
 
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-        </section>
-        <section id="timeline-section">
-            <div id="timeline">
-                <h4>Accidents Distribution by Date
-                        <a class="reset" href="javascript:timelineChart.filterAll();dc.redrawAll();" style="display: none;" aria-label="Reset all filters for this chart">reset</a>
-                        <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span></h4>
-    
-                        <div class="clearfix"></div>
-            </div>
-        </section>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </section>
+      <section id="timeline-section">
+        <div id="timeline">
+          <h4>
+            Accidents Distribution by Date
+            <a
+              class="reset"
+              href="javascript:timelineChart.filterAll();dc.redrawAll();"
+              style="display: none"
+              aria-label="Reset all filters for this chart"
+            >
+              reset
+            </a>
+            <span class="reset" style="display: none">
+              | Current filter:
+              <span class="filter"></span>
+            </span>
+          </h4>
 
-        <section id="tops-section">
-                <div id="top-states">
-                    <h4>Top 10 States
-                        <a class="reset" href="javascript:topStatesChart.filterAll();dc.redrawAll();" style="display: none;" aria-label="Reset all filters for this chart">reset</a>
-                        <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span></h4>
-    
-                        <div class="clearfix"></div>
-                </div>
-                <div id="top-counties">
-                    <h4>Top 10 Counties
-                        <a class="reset" href="javascript:topCountiesChart.filterAll();dc.redrawAll();" style="display: none;" aria-label="Reset all filters for this chart">reset</a>
-                        <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span></h4>
-    
-                        <div class="clearfix"></div>
-                </div>
-                <div id="top-cities">
-                    <h4>Top 10 Cities
-                        <a class="reset" href="javascript:topCitiesChart.filterAll();dc.redrawAll();" style="display: none;" aria-label="Reset all filters for this chart">reset</a>
-                        <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span></h4>
-    
-                        <div class="clearfix"></div>
-                </div>
+          <div class="clearfix"></div>
+        </div>
+      </section>
 
-        </section>
-        <section id="severity-section">
-            <div id="severity">
-                <h4>Severity of an Impact on Traffic
-                    <a class="reset" href="javascript:severityChart.filterAll();dc.redrawAll();" style="display: none;" aria-label="Reset all filters for this chart">reset</a>
-                    <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span></h4>
+      <section id="tops-section">
+        <div id="top-states">
+          <h4>
+            Top 10 States
+            <a
+              class="reset"
+              href="javascript:topStatesChart.filterAll();dc.redrawAll();"
+              style="display: none"
+              aria-label="Reset all filters for this chart"
+            >
+              reset
+            </a>
+            <span class="reset" style="display: none">
+              | Current filter:
+              <span class="filter"></span>
+            </span>
+          </h4>
 
-                    <div class="clearfix"></div>
-            </div>
-            <div id="day-night">
-                <h4>Time of a day during accident
-                    <a class="reset" href="javascript:dayNightChart.filterAll();dc.redrawAll();" style="display: none;" aria-label="Reset all filters for this chart">reset</a>
-                    <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span></h4>
+          <div class="clearfix"></div>
+        </div>
+        <div id="top-counties">
+          <h4>
+            Top 10 Counties
+            <a
+              class="reset"
+              href="javascript:topCountiesChart.filterAll();dc.redrawAll();"
+              style="display: none"
+              aria-label="Reset all filters for this chart"
+            >
+              reset
+            </a>
+            <span class="reset" style="display: none">
+              | Current filter:
+              <span class="filter"></span>
+            </span>
+          </h4>
 
-                    <div class="clearfix"></div>
-            </div>
-        </section>
-        <section id="weekday-section">
-            <div id="day-of-week-chart">
-                <h4>Accidents by day of a week
-                        <a class="reset" href="javascript:dayOfWeekChart.filterAll();dc.redrawAll();" style="display: none;" aria-label="Reset all filters for this chart">reset</a>
-                        <span class="reset" style="display: none;"> | Current filter: <span class="filter"></span></span></h4>
-    
-                        <div class="clearfix"></div>
-            </div>
-        </section>
-        <section id="table-section">
-            <h4>Top 30 accidents by selected filters</h4>
-            <table id="data-table">
-            </table>
-        </section>
-        <br>
+          <div class="clearfix"></div>
+        </div>
+        <div id="top-cities">
+          <h4>
+            Top 10 Cities
+            <a
+              class="reset"
+              href="javascript:topCitiesChart.filterAll();dc.redrawAll();"
+              style="display: none"
+              aria-label="Reset all filters for this chart"
+            >
+              reset
+            </a>
+            <span class="reset" style="display: none">
+              | Current filter:
+              <span class="filter"></span>
+            </span>
+          </h4>
 
+          <div class="clearfix"></div>
+        </div>
+      </section>
+      <section id="severity-section">
+        <div id="severity">
+          <h4>
+            Severity of an Impact on Traffic
+            <a
+              class="reset"
+              href="javascript:severityChart.filterAll();dc.redrawAll();"
+              style="display: none"
+              aria-label="Reset all filters for this chart"
+            >
+              reset
+            </a>
+            <span class="reset" style="display: none">
+              | Current filter:
+              <span class="filter"></span>
+            </span>
+          </h4>
+
+          <div class="clearfix"></div>
+        </div>
+        <div id="day-night">
+          <h4>
+            Time of a day during accident
+            <a
+              class="reset"
+              href="javascript:dayNightChart.filterAll();dc.redrawAll();"
+              style="display: none"
+              aria-label="Reset all filters for this chart"
+            >
+              reset
+            </a>
+            <span class="reset" style="display: none">
+              | Current filter:
+              <span class="filter"></span>
+            </span>
+          </h4>
+
+          <div class="clearfix"></div>
+        </div>
+      </section>
+      <section id="weekday-section">
+        <div id="day-of-week-chart">
+          <h4>
+            Accidents by day of a week
+            <a
+              class="reset"
+              href="javascript:dayOfWeekChart.filterAll();dc.redrawAll();"
+              style="display: none"
+              aria-label="Reset all filters for this chart"
+            >
+              reset
+            </a>
+            <span class="reset" style="display: none">
+              | Current filter:
+              <span class="filter"></span>
+            </span>
+          </h4>
+
+          <div class="clearfix"></div>
+        </div>
+      </section>
+      <section id="table-section">
+        <h4>Top 30 accidents by selected filters</h4>
+        <table id="data-table"></table>
+      </section>
+      <br />
     </main>
     <footer>
+      <div>
+        <p>
+          Data has been obtained from
+          <a
+            target="_blank"
+            href="https://www.kaggle.com/"
+            rel="noopener noreferrer"
+            aria-label="Link to kaggle.com. Opens in a separate tab"
+          >
+            Kaggle.com
+          </a>
+        </p>
+        <p>
+          Dataset link:
+          <a
+            href="https://www.kaggle.com/sobhanmoosavi/us-accidents?select=US_Accidents_Dec20_updated.csv"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Link to the dataset on kaggle.com. Opens in a separate tab"
+          >
+            US Accidents
+          </a>
+        </p>
         <div>
-            <p>Data has been obtained from <a target="_blank" href="https://www.kaggle.com/" rel="noopener noreferrer" aria-label="Link to kaggle.com. Opens in a separate tab">Kaggle.com</a></p>
-            <p>Dataset link: <a href="https://www.kaggle.com/sobhanmoosavi/us-accidents?select=US_Accidents_Dec20_updated.csv" target="_blank" rel="noopener noreferrer" aria-label="Link to the dataset on kaggle.com. Opens in a separate tab">US Accidents</a></p>
-            <div>Libraries used:
-                <ul>
-                    <li><a href="https://d3js.org/" target="_blank" rel="noopener noreferrer" aria-label="Link to d3.js library page. Opens in a separate tab"><img class="library-logo" src="assets/images/d3.svg" alt="d3.js logo"></a></li>
-                
-                    <li><a href="https://dc-js.github.io/dc.js/" target="_blank" rel="noopener noreferrer" aria-label="Link to dc.js library page. Opens in a separate tab"><img class="library-logo" src="assets/images/dc.png" alt="dc.js logo"></a></li>
-                
-                    <li><a href="https://square.github.io/crossfilter/" target="_blank" rel="noopener noreferrer" aria-label="Link to crossfilter.js library page. Opens in a separate tab"><img class="library-logo" src="assets/images/crossfilter.png" alt="crossfilter.js logo"></a></li>
-                </ul>
-            </div>
+          Libraries used:
+          <ul>
+            <li>
+              <a
+                href="https://d3js.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Link to d3.js library page. Opens in a separate tab"
+              >
+                <img
+                  class="library-logo"
+                  src="assets/images/d3.svg"
+                  alt="d3.js logo"
+                />
+              </a>
+            </li>
 
+            <li>
+              <a
+                href="https://dc-js.github.io/dc.js/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Link to dc.js library page. Opens in a separate tab"
+              >
+                <img
+                  class="library-logo"
+                  src="assets/images/dc.png"
+                  alt="dc.js logo"
+                />
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://square.github.io/crossfilter/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Link to crossfilter.js library page. Opens in a separate tab"
+              >
+                <img
+                  class="library-logo"
+                  src="assets/images/crossfilter.png"
+                  alt="crossfilter.js logo"
+                />
+              </a>
+            </li>
+          </ul>
         </div>
+      </div>
+      <div>
+        <p>Website created by Aleksei Konovalov &copy; 2021</p>
+        <p>
+          This is my milestone project for
+          <a
+            href="https://codeinstitute.net/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Link to code institute page. Opens in a separate tab"
+          >
+            Code Institute
+          </a>
+        </p>
         <div>
-            <p>Website created by Aleksei Konovalov &copy; 2021</p>
-            <p>This is my milestone project for <a href="https://codeinstitute.net/" target="_blank" rel="noopener noreferrer" aria-label="Link to code institute page. Opens in a separate tab">Code Institute</a></p>
-            <div>Find me on:
-                <ul>
-                    <li><a href="https://github.com/lexach91" target="_blank" rel="noopener noreferrer" aria-label="Link to github. Opens in a separate tab"><i class="fab fa-github"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/aleksei-konovalov/" target="_blank" rel="noopener noreferrer" aria-label="Link to linkedin. Opens in a separate tab"><i class="fab fa-linkedin"></i></a></li>
-                    <li><a href="https://www.facebook.com/Lexach91" target="_blank" rel="noopener noreferrer" aria-label="Link to facebook. Opens in a separate tab"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="https://vk.com/lexach91" target="_blank" rel="noopener noreferrer" aria-label="Link to vk.com. Opens in a separate tab"><i class="fab fa-vk"></i></a></li>
-                </ul>
-                
-            </div>
+          Find me on:
+          <ul>
+            <li>
+              <a
+                href="https://github.com/lexach91"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Link to github. Opens in a separate tab"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/aleksei-konovalov/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Link to linkedin. Opens in a separate tab"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/Lexach91"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Link to facebook. Opens in a separate tab"
+              >
+                <i class="fab fa-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://vk.com/lexach91"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Link to vk.com. Opens in a separate tab"
+              >
+                <i class="fab fa-vk"></i>
+              </a>
+            </li>
+          </ul>
         </div>
+      </div>
     </footer>
 
     <script src="assets/js/script.js"></script>

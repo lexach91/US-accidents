@@ -44,6 +44,7 @@ body {
     font-family: var(--font-primary);
     overflow-x: hidden;
 }
+
 /* Header styles */
 
 header {
@@ -58,7 +59,7 @@ header {
     max-width: 1500px;
     margin: 0 auto;
     display: none;
-    background-color: rgba(255,255,255,0.05)
+    background-color: rgba(255, 255, 255, 0.05)
 }
 
 /* Changing default dc.js css properties for chart axis */
@@ -139,7 +140,7 @@ section {
     transform: translate(-5%, 0)
 }
 
-#us-map path{
+#us-map path {
     stroke: none !important;
 }
 
@@ -161,9 +162,9 @@ section {
 
 #weather-selector {
     height: 85%;
-     border: 2px solid #432E36;
-     border-radius: 5px;
-     padding: 0.5em;
+    border: 2px solid #432E36;
+    border-radius: 5px;
+    padding: 0.5em;
 }
 
 #weather-selector h4 {
@@ -200,9 +201,9 @@ section {
     font-size: 20px !important;
 }
 
-.dc-legend-item > text {
+.dc-legend-item>text {
     font-size: 16px !important;
-    
+
 }
 
 /* Styles for section with severity chart, and day-night pie chart */
@@ -240,7 +241,8 @@ tr:hover {
     opacity: .8;
 }
 
-td, th {
+td,
+th {
     border: 1px solid #432E36;
     padding: .2em
 }
@@ -295,6 +297,7 @@ footer i {
     width: 2em;
     padding: 0.5em;
 }
+
 footer i:hover {
     transform: scale(1.2);
 
@@ -343,6 +346,7 @@ footer i:hover {
     #tops-section svg {
         width: 80%;
     }
+
     #severity-section {
         flex-direction: column;
     }
@@ -366,6 +370,7 @@ footer i:hover {
     #day-of-week-chart text {
         font-size: 15px !important;
     }
+
     #day-of-week-chart .row text {
         font-size: 20px !important;
     }
