@@ -36,131 +36,212 @@
 ## Features
 
 ### Before data is loaded:
+
 - #### Loading screen
+
     ![Loading screen](assets/documentation/load-screen.png)
+
     - Takes 100 percent of viewport
-    - Shows an animated GIF image ![Loading](assets/images/loading.gif)
+
+    - Shows an animated GIF image: 
+
+    ![Loading](assets/images/loading.gif)
+    
     - Shows the message to the user that the data is loading and they need to wait
 
 - #### Loading screen with an error message
+    
     ![Loading screen](assets/documentation/load-screen-with-error.png)
+
     - Error message appears on the loading screen if there was some error during fetching the data
 
 ---
+
 ### After data is loaded:
+
 - #### Header
+
     ![Header](assets/documentation/header.png)
+   
     - Featured at the top of the page
 
 - #### USA Map Chart
+
     ![USA map](assets/documentation/us-map.png)
 
     - This chart shows amount of accidents by state, plotted on interactive map
+
     - Each state can be clicked to apply filters to other charts
+
     - Hovering above each state will show a tooltip with the name of the state and the amount of accidents
+
     - Chart created with DC.js library (dc.geoChoroplethChart)
 
 - #### Total number
+
     ![Number of selected accidents](assets/documentation/total-number.png)
 
     - This element shows total amount of accidents on the load of the page and changing when filters on other charts are applied.
+
     - Element created with DC.js library (dc.numberDisplay)
 
 - #### Weather conditions chart
+
     ![Weather pie chart](assets/documentation/weather-selector.png)
 
     - This pie chart shows top 10 weather conditions during accidents.
+
     - Each weather condition can be clicked to apply filters to other charts
+
     - Hovering above each weather condition will show a tooltip with the name of the weather condition and the amount of accidents
+
     - Chart created with DC.js library (dc.pieChart)
 
 - #### Timeline chart
+
     ![Timeline bar chart](assets/documentation/timeline.png)
 
     - This bar chart shows accidents distribution by date from February 2016 to December 2020
+
     - User can select a period of time with the mouse to apply filters to other charts
+    
     - Chart created with DC.js library (dc.barChart)
 
 - #### Top 10 States, Counties, And Cities charts
+
     ![Top 10 States, Counties, And Cities row charts](assets/documentation/tops.png)
 
     - These row charts show top 10 States, Counties, and Cities by the amount of accidents
+
     - Each row can be clicked to apply filters to other charts
+
     - Hovering above each row will show a tooltip with the name of the state, county, or city and the amount of accidents
+
     - Charts created with DC.js library (dc.rowChart)
 
 - #### Severity chart
+
     ![Severity of an impact on traffic row chart](assets/documentation/severity.png)
+
     - This row chart shows the level of an impact on traffic
+
     - Each row can be clicked to apply filters to other charts
+
     - Hovering above each row will show a tooltip with the level of severity and the amount of accidents
+
     - Chart created with DC.js library (dc.rowChart)
 
 - #### Time of a day during accident chart
+
     ![Day night pie chart](assets/documentation/day-night.png)
 
     - This pie chart shows the amount of accidents happen during the day time, and night time.
+
     - User can apply filters to other charts by clicking on "Day" or "Night"
+
     - Hovering above "Day" and "Night" will show a tooltip with the time of the day and the amount of accidents
+
     - Chart created with DC.js library (dc.pieChart)
 
 - #### Accidents by day of a week chart
+
     ![weekday row chart](assets/documentation/weekday.png)
+
     - This row chart shows the amount of accidents for each day of a week
+
     - Each row can be clicked to apply filters to other charts
+
     - Hovering above each row will show a tooltip with the day of the week and the amount of accidents
+
     - Chart created with DC.js library (dc.rowChart)
 
 - #### Table on aggregated data
+
     ![data table](assets/documentation/table.png)
+
     - The table shows top 30 accidents from the aggregated data
+
     - The table is affected by the filters applied to the other charts
+
     - The table's columns:
+
         + Data
+
         + State
+
         + County
+
         + City
+
         + Description
+
     - The table created with DC.js library (dc.dataTable)
 
 - #### Footer
+
     ![Footer](assets/documentation/footer.png)
-        - Positioned at the bottom of the page
-        - Contains information about the dataset and the libraries used to create the website
-        - Contains information about the website developer and links the social networks
+       
+    - Positioned at the bottom of the page
+       
+    - Contains information about the dataset and the libraries used to create the website
+       
+    - Contains information about the website developer and links the social networks
 
 ---
+
 ### Testing
 
 - I tested the website in different browsers: Chrome, Firefox, Brave, Opera
+
 - I confirmed that the loading screen is displayed while data is fetching and is hidden when the charts are drawn
+
 - I confirmed that the error message is shawn to the user on the loading screen if an error occurred while fetching the data
+
 - I confirmed that the data is loading and charts are displayed correctly
+
 - I confirmed that the header and the footer are displayed correctly
+
 - I confirmed that the website is responsive and displayed correctly on all common screen sizes
 
 #### Validator testing
+
 - HTML
+   
     + No errors were returned when passing through the official W3C validator:
+   
     ![W3C HTML validator results](assets/documentation/w3c-html.png)
+
 - CSS
+
     + No errors were returned when passing through the official (Jigsaw) validator:
+    
     ![Jigsaw CSS validator results](assets/documentation/jigsaw-css.png)
+    
     + However, 7 warnings were returned, which have no impact on page display:
+    
     ![CSS warnings](assets/documentation/css-warnings.png)
+
 - Javascript
+
     + Jshint returned an error about undefined variables d3, dc, and crossfilter. These variables do not need to be defined by me, because they are imported directly from the libraries I used to create this website:
+
     ![jshint validator results](assets/documentation/jshint.png) 
+
 - Responsiveness
+
     + Tools that were used to check the website responsiveness:
         - [Responsive Design Checker](https://responsivedesignchecker.com/):
         ![responsive design checker results](assets/documentation/resposive-design-checker.gif)
         - [Am I Responsive](https://responsivedesignchecker.com/):
         ![am i responsive results](assets/documentation/am-i-responsive.png)
         - Chrome Developer tools:
+
             + Website on desktop:
+
             ![Website on desktop](assets/documentation/webpage-desktop.png)
+            
             + Website on mobile:
+
             ![Website on mobile](assets/documentation/webpage-mobile.png)
 
 ---
