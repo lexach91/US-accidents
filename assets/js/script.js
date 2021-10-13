@@ -13,7 +13,8 @@ const topCitiesChart = dc.rowChart("#top-cities");
 const dataTable = dc.dataTable("#data-table");
 const dayOfWeekChart = dc.rowChart("#day-of-week-chart");
 
-const dataUrl = "https://query.data.world/s/5c54uvvfqkeg6vtct5tquymi4nbe7f"; // Link to dataset hosted at data.world
+const dataUrl = "https://query.data.world/s/nj3z7g3knxoogggvggutwxbkbynteo"; // Link to dataset hosted at data.world
+
 
 // Variables for parsing and formatting date
 const parseDate = d3.timeParse("%Y-%m-%d");
@@ -26,7 +27,7 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
   })
   .then((data) => {
     data.forEach((d) => {
-      d.date = parseDate(d.date.slice(0, 10)); //Parsing a date from a date column in dataset
+      d.date = parseDate(d.date); //Parsing a date from a date column in dataset
     });
 
     //Adding variables for all data with crossfilter library
