@@ -203,6 +203,10 @@
 
 - I confirmed that the website is responsive and displayed correctly on all common screen sizes
 
+- I confirmed that the website's performance and accessibility are on satisfying level, using Lighthouse in Chrome Dev Tools:
+
+![Lighthouse results](assets/documentation/lighthouse.png)
+
 #### Validator testing
 
 - HTML
@@ -247,7 +251,69 @@
 ---
 #### Bugs
 - ##### Solved bugs:
+
     + When I just started to work on my project I decided to use Bootstrap library to minimize writing my own CSS, but I encountered an issue with displaying of all row charts on the page. As I found out later it was because of the conflict of two libraries: bootstrap and dc.js. They both use css class "row", but for different purposes. So, when I stopped using bootstrap, all charts were displayed correctly again. 
+
     + At the beginning I wanted to plot all accidents locations from the dataset to the scatter plot. But plotting 1.5M points on one chart was taking an enormous amount of time, and the page became almost unusable. So, I decided not to use this kind of chart on my page.
+
+    + The dataset I used was large in size even after cleaning and GitHub doesn't allow to upload files more than 100MB. So, I needed to use [Git Large File Storage](https://git-lfs.github.com/). But after changing the dataset a couple of times, I got the message on my email that I am out of free traffic they provide, and I couldn't use it anymore.
+        
+        - After some research I found the resource [Data.world](https://data.world/). There I could host the dataset for free.
+
 - ##### Unsolved bugs:
     + The website doesn't work on the mobile version of Brave browser. The reason remains unknown. But other mobile browsers, such as Google Chrome, Opera, and Firefox don't have such an issue.
+
+---
+
+### Deployment
+
+The website was deployed to GitHub pages.
+
+The steps to deploy:
+
+- Open the website's GitHub repository
+- Click on the "settings" tab in upper right corner
+- In the left sidebar menu click on the "Pages" button
+- Choose the branch that needs to be deployed
+- Click the "save" button
+
+The live link to the website can be found here - [US Traffic Accidents](https://lexach91.github.io/US-accidents) 
+
+---
+
+### Credits
+
+##### Content
+
+- The code for the custom scrollbar was generated with [W3 Generator](https://w3generator.com/scrollbar)
+
+- The code to make the charts responsive was found on [Official dc.js website](https://dc-js.github.io/dc.js/resizing/)
+
+##### Images
+
+- d3.js logo was taken from the [Official d3.js website](https://d3js.org/) 
+
+- dc.js logo was taken from the [Official dc.js website](https://dc-js.github.io/dc.js/) 
+
+- crossfilter logo was taken from the [Official crossfilter's GitHub](https://github.com/crossfilter)
+
+##### Icons
+
+- Social networks icons were taken from [Font Awesome](https://fontawesome.com/)
+
+##### Fonts
+
+- Fonts were taken from [Google Fonts](https://fonts.google.com/)
+
+##### Data
+
+- Dataset was found on [Kaggle](https://www.kaggle.com/)
+    + [Link to the dataset](https://www.kaggle.com/sobhanmoosavi/us-accidents)
+
+- Dataset was cleaned from unused columns to reduce its size and hosted on [Data.world](https://data.world/lexach91/us-accidentsupdated)
+
+- Acknowledgements:
+    
+    + Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, and Rajiv Ramnath. [“A Countrywide Traffic Accident Dataset.”](https://arxiv.org/abs/1906.05409), 2019.
+
+    + Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, Radu Teodorescu, and Rajiv Ramnath. ["Accident Risk Prediction based on Heterogeneous Sparse Data: New Dataset and Insights."](https://arxiv.org/abs/1909.09638) In proceedings of the 27th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems, ACM, 2019.
