@@ -95,11 +95,11 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
         .width(550)
         .dimension(weatherDim)
         .group(weatherGroup)
-        .data((group) => group.top(10))
+        .data((group) => group.top(10)) // Shows only top 10 weather conditions with most accidents on applied filters
         .legend(dc.legend())
-        .innerRadius(50)
-        .minAngleForLabel(100)
-        .cx(350)
+        .innerRadius(50) // Make pie chart into a donut chart
+        .minAngleForLabel(100) // Hide labels from the chart, because we use a legend
+        .cx(350) // Translating the center of the chart to the right to make it more centered with legend
         .title(function (d) {
           return (
             "Weather conditions: " +
@@ -243,7 +243,7 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
       dataTable
         .dimension(dateDim)
         .showSections(false)
-        .size(30)
+        .size(30) // Specifies an amount of rows shown in the table
         .useViewBoxResizing(true)
         .columns([
           {
