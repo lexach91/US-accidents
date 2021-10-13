@@ -4,7 +4,7 @@
 
 [US Traffic Accidents](https://lexach91.github.io/US-accidents/) is a dashboard with interactive charts that visualize data about car accidents that occurred from 2016 to 2020 on the territory of 49 states of the USA.
 
-![Website screenshot](assets/documentation/webpage-desktop.png)
+![Website screenshot](assets/documentation/am-i-responsive.png)
 
 ---
 
