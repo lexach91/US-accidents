@@ -23,13 +23,13 @@
 
 ## User stories
 
-- As a first-time visitor, I want to understand the purpose of the website so I can use it properly.
+- As a first-time visitor, I want to understand the purpose of the Website, so I can use it properly.
 - As a first-time visitor, I want to see the titles of each chart, so I can understand what data they represent.
-- As a first-time visitor, I want to see what technologies have been used to create the website, so I can learn more about them and use them myself.
+- As a first-time visitor, I want to see what technologies have been used to create the Website, so I can learn more about them and use them myself.
 - As a first-time visitor, I want to see some information about the website developer, so I can contact them.
-- As a user of the website, I want to see what filters are currently applied on each chart, so I can analyze visualized data correctly.
-- As a user of the website, I want to be able to reset applied filters for each chart, so I can switch filters I'm not currently interested in.
-- As a mobile device user, I want the website to be mobile-friendly, so I can use my tablet or smartphone to visit it.
+- As a user of the Website, I want to see what filters are currently applied on each chart, so I can analyze visualized data correctly.
+- As a user of the Website, I want to be able to reset applied filters for each chart, so I can switch filters I'm not currently interested in.
+- As a mobile device user, I want the Website to be mobile-friendly, so I can use my tablet or smartphone to visit it.
 
 ---
 
@@ -41,7 +41,7 @@
 
     ![Loading screen](assets/documentation/load-screen.png)
 
-    - Takes 100 percent of viewport
+    - Takes 100 percent of the viewport
 
     - Shows an animated GIF image: 
 
@@ -53,7 +53,7 @@
     
     ![Loading screen](assets/documentation/load-screen-with-error.png)
 
-    - Error message appears on the loading screen if there was some error during fetching the data
+    - Error message would appear on the loading screen if there were some errors while fetching the data
 
 ---
 
@@ -65,15 +65,17 @@
    
     - Featured at the top of the page
 
+    - Contains the main heading of the website
+
 - #### USA Map Chart
 
     ![USA map](assets/documentation/us-map.png)
 
-    - This chart shows amount of accidents by state, plotted on interactive map
+    - This chart shows the number of accidents by State, plotted on an interactive map
 
-    - Each state can be clicked to apply filters to other charts
+    - Each State can be clicked to apply filters to other charts
 
-    - Hovering above each state will show a tooltip with the name of the state and the amount of accidents
+    - Hovering above each State will show a tooltip with the name of the State and the number of accidents
 
     - Chart created with DC.js library (dc.geoChoroplethChart)
 
@@ -81,7 +83,7 @@
 
     ![Number of selected accidents](assets/documentation/total-number.png)
 
-    - This element shows total amount of accidents on the load of the page and changing when filters on other charts are applied.
+    This element shows the total number of accidents on the page's load and changes when filters on other charts are applied.
 
     - Element created with DC.js library (dc.numberDisplay)
 
@@ -89,11 +91,11 @@
 
     ![Weather pie chart](assets/documentation/weather-selector.png)
 
-    - This pie chart shows top 10 weather conditions during accidents.
+    - This pie chart shows the top 10 weather conditions during accidents.
 
     - Each weather condition can be clicked to apply filters to other charts
 
-    - Hovering above each weather condition will show a tooltip with the name of the weather condition and the amount of accidents
+    - Hovering above each weather condition will show a tooltip with the name of the weather condition and the number of accidents
 
     - Chart created with DC.js library (dc.pieChart)
 
@@ -111,11 +113,11 @@
 
     ![Top 10 States, Counties, And Cities row charts](assets/documentation/tops.png)
 
-    - These row charts show top 10 States, Counties, and Cities by the amount of accidents
+    - These row charts show the top 10 States, Counties, and Cities by the number of accidents
 
     - Each row can be clicked to apply filters to other charts
 
-    - Hovering above each row will show a tooltip with the name of the state, county, or city and the amount of accidents
+    - Hovering above each row will show a tooltip with the name of the State, County, or City and the number of accidents
 
     - Charts created with DC.js library (dc.rowChart)
 
@@ -127,7 +129,7 @@
 
     - Each row can be clicked to apply filters to other charts
 
-    - Hovering above each row will show a tooltip with the level of severity and the amount of accidents
+    - Hovering above each row will show a tooltip with the level of severity and the number of accidents
 
     - Chart created with DC.js library (dc.rowChart)
 
@@ -135,11 +137,11 @@
 
     ![Day night pie chart](assets/documentation/day-night.png)
 
-    - This pie chart shows the amount of accidents happen during the day time, and night time.
+    - This pie chart shows the number of accidents that happen during the daytime and nighttime.
 
-    - User can apply filters to other charts by clicking on "Day" or "Night"
+    - User can apply filters to other charts by clicking on "Day" or "Night."
 
-    - Hovering above "Day" and "Night" will show a tooltip with the time of the day and the amount of accidents
+    - Hovering above "Day" and "Night" will show a tooltip with the time of the day and the number of accidents
 
     - Chart created with DC.js library (dc.pieChart)
 
@@ -147,11 +149,11 @@
 
     ![weekday row chart](assets/documentation/weekday.png)
 
-    - This row chart shows the amount of accidents for each day of a week
+    - This row chart shows the number of accidents for each day of a week
 
     - Each row can be clicked to apply filters to other charts
 
-    - Hovering above each row will show a tooltip with the day of the week and the amount of accidents
+    - Hovering above each row will show a tooltip with the day of the week and the number of accidents
 
     - Chart created with DC.js library (dc.rowChart)
 
@@ -159,7 +161,7 @@
 
     ![data table](assets/documentation/table.png)
 
-    - The table shows top 30 accidents from the aggregated data
+    - The table shows the top 30 accidents from the aggregated data
 
     - The table is affected by the filters applied to the other charts
 
@@ -183,7 +185,7 @@
        
     - Positioned at the bottom of the page
        
-    - Contains information about the dataset and the libraries used to create the website
+    - Contains information about the dataset and the libraries used to create the Website
        
     - Contains information about the website developer and links the social networks
 
@@ -191,19 +193,19 @@
 
 ### Testing
 
-- I tested the website in different browsers: Chrome, Firefox, Brave, Opera
+- I tested the Website in different browsers: Chrome, Firefox, Brave, Opera
 
 - I confirmed that the loading screen is displayed while data is fetching and is hidden when the charts are drawn
 
-- I confirmed that the error message is shawn to the user on the loading screen if an error occurred while fetching the data
+- I confirmed that the error message is shown to the user on the loading screen if an error occurred while fetching the data
 
 - I confirmed that the data is loading and charts are displayed correctly
 
 - I confirmed that the header and the footer are displayed correctly
 
-- I confirmed that the website is responsive and displayed correctly on all common screen sizes
+- I confirmed that the Website is responsive and displayed correctly on all standard screen sizes
 
-- I confirmed that the website's performance and accessibility are on satisfying level, using Lighthouse in Chrome Dev Tools:
+- I confirmed that the Website's performance and accessibility are on a satisfying level, using Lighthouse in Chrome Dev Tools:
 
 ![Lighthouse results](assets/documentation/lighthouse.png)
 
@@ -221,13 +223,13 @@
     
     ![Jigsaw CSS validator results](assets/documentation/jigsaw-css.png)
     
-    + However, 7 warnings were returned, which have no impact on page display:
+    + However, seven warnings were returned, which have no impact on page display:
     
     ![CSS warnings](assets/documentation/css-warnings.png)
 
 - Javascript
 
-    + Jshint returned an error about undefined variables d3, dc, and crossfilter. These variables do not need to be defined by me, because they are imported directly from the libraries I used to create this website:
+    + Jshint returned an error about undefined variables d3, dc, and crossfilter. These variables do not need to be defined by me because they are imported directly from the libraries I used to create this Website:
 
     ![jshint validator results](assets/documentation/jshint.png) 
 
@@ -252,32 +254,32 @@
 #### Bugs
 - ##### Solved bugs:
 
-    + When I just started to work on my project I decided to use Bootstrap library to minimize writing my own CSS, but I encountered an issue with displaying of all row charts on the page. As I found out later it was because of the conflict of two libraries: bootstrap and dc.js. They both use css class "row", but for different purposes. So, when I stopped using bootstrap, all charts were displayed correctly again. 
+    + When I just started working on my project, I decided to use the Bootstrap library to minimize writing my own CSS, but I encountered an issue with displaying all row charts on the page. As I found out later, it was because of the conflict of two libraries: bootstrap and dc.js. They both use CSS class "row," but for different purposes. So, when I stopped using bootstrap, all charts were displayed correctly again. 
 
-    + At the beginning I wanted to plot all accidents locations from the dataset to the scatter plot. But plotting 1.5M points on one chart was taking an enormous amount of time, and the page became almost unusable. So, I decided not to use this kind of chart on my page.
+    + At the beginning, I wanted to plot all accidents locations from the dataset to the scatter plot. But plotting 1.5M points on one chart was taking an enormous amount of time, and the page became almost unusable. So, I decided not to use this kind of chart on my page.
 
-    + The dataset I used was large in size even after cleaning and GitHub doesn't allow to upload files more than 100MB. So, I needed to use [Git Large File Storage](https://git-lfs.github.com/). But after changing the dataset a couple of times, I got the message on my email that I am out of free traffic they provide, and I couldn't use it anymore.
+    + The dataset I used was large even after cleaning, and GitHub doesn't allow uploading files more than 100MB. So, I needed to use [Git Large File Storage](https://git-lfs.github.com/). But after changing the dataset a couple of times, I got the message on my email that I am out of free traffic they provide, and I couldn't use it anymore.
         
-        - After some research I found the resource [Data.world](https://data.world/). There I could host the dataset for free.
+        - After some research, I found the resource [Data.world](https://data.world/). There I could host the dataset for free.
 
 - ##### Unsolved bugs:
-    + The website doesn't work on the mobile version of Brave browser. The reason remains unknown. But other mobile browsers, such as Google Chrome, Opera, and Firefox don't have such an issue.
+    + The Website doesn't work on the mobile version of Brave browser. The reason remains unknown. But other mobile browsers, such as Google Chrome, Opera, and Firefox, don't have such an issue.
 
 ---
 
 ### Deployment
 
-The website was deployed to GitHub pages.
+The Website was deployed to GitHub pages.
 
 The steps to deploy:
 
-- Open the website's GitHub repository
-- Click on the "settings" tab in upper right corner
-- In the left sidebar menu click on the "Pages" button
+- Open the Website's GitHub repository
+- Click on the "settings" tab in the upper right corner
+- In the left sidebar menu, click on the "Pages" button
 - Choose the branch that needs to be deployed
 - Click the "save" button
 
-The live link to the website can be found here - [US Traffic Accidents](https://lexach91.github.io/US-accidents) 
+The live link to the Website can be found here - [US Traffic Accidents](https://lexach91.github.io/US-accidents) 
 
 ---
 
@@ -287,13 +289,13 @@ The live link to the website can be found here - [US Traffic Accidents](https://
 
 - The code for the custom scrollbar was generated with [W3 Generator](https://w3generator.com/scrollbar)
 
-- The code to make the charts responsive was found on [Official dc.js website](https://dc-js.github.io/dc.js/resizing/)
+- The code to make the charts responsive was found on [Official dc.js Website](https://dc-js.github.io/dc.js/resizing/)
 
 ##### Images
 
-- d3.js logo was taken from the [Official d3.js website](https://d3js.org/) 
+- d3.js logo was taken from the [Official d3.js Website](https://d3js.org/) 
 
-- dc.js logo was taken from the [Official dc.js website](https://dc-js.github.io/dc.js/) 
+- dc.js logo was taken from the [Official dc.js Website](https://dc-js.github.io/dc.js/) 
 
 - crossfilter logo was taken from the [Official crossfilter's GitHub](https://github.com/crossfilter)
 
@@ -314,6 +316,6 @@ The live link to the website can be found here - [US Traffic Accidents](https://
 
 - Acknowledgements:
     
-    + Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, and Rajiv Ramnath. [“A Countrywide Traffic Accident Dataset.”](https://arxiv.org/abs/1906.05409), 2019.
+    + Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, and Rajiv Ramnath. ["A Countrywide Traffic Accident Dataset."](https://arxiv.org/abs/1906.05409), 2019.
 
     + Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, Radu Teodorescu, and Rajiv Ramnath. ["Accident Risk Prediction based on Heterogeneous Sparse Data: New Dataset and Insights."](https://arxiv.org/abs/1909.09638) In proceedings of the 27th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems, ACM, 2019.
