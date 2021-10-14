@@ -229,8 +229,7 @@
 
     ![font roboto](assets/documentation/roboto-font.png)
 
-White text color provides perfect readability on dark background.
-The contrast between D3 category10 color scheme and dark background colors provides better user experience by emphasizing charts.
+The fonts, colors, and charts' color scheme were chosen to provide better readability and user experience by creating perfect contrast between white text color, charts' brights colors, and dark background colors.
 
 ---
 
