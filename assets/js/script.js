@@ -15,7 +15,6 @@ const dayOfWeekChart = dc.rowChart("#day-of-week-chart");
 
 const dataUrl = "https://query.data.world/s/nj3z7g3knxoogggvggutwxbkbynteo"; // Link to dataset hosted at data.world
 
-
 // Variables for parsing and formatting date
 const parseDate = d3.timeParse("%Y-%m-%d");
 const formatDate = d3.timeFormat("%Y-%m-%d");
