@@ -246,6 +246,8 @@ The contrast between D3 category10 color scheme and dark background colors provi
 
 - I confirmed that the header and the footer are displayed correctly
 
+- I confirmed that all external links are working and opening in a new tab
+
 - I confirmed that the Website is responsive and displayed correctly on all standard screen sizes
 
 - I confirmed that the Website's performance and accessibility are on a satisfying level, using Lighthouse in Chrome Dev Tools:
