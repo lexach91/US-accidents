@@ -45,6 +45,11 @@ body {
     overflow-x: hidden;
 }
 
+/* Specify font family used in charts */
+text {
+    font-family: var(--font-primary) !important;
+}
+
 /* Header styles */
 
 header {
