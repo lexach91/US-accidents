@@ -157,6 +157,13 @@
 
     - Chart created with DC.js library (dc.rowChart)
 
+- #### Reset button
+
+    ![reset button](assets/documentation/reset-button.png)
+
+    - Every chart has the "reset" button shown only if some filters are applied to the chart.
+    - To the right from the "reset" button listed all current filters applied to the chart.
+
 - #### Table on aggregated data
 
     ![data table](assets/documentation/table.png)
@@ -188,6 +195,42 @@
     - Contains information about the dataset and the libraries used to create the Website
        
     - Contains information about the website developer and links the social networks
+
+---
+### Design
+
+- #### Colors
+
+    + Body background color is #260C1A
+
+    ![body background color](assets/documentation/bg-color.png)
+
+    + Main container background color is #2e1a26
+
+    ![container background color](assets/documentation/container-bg-color.png)
+
+    + Secondary color for footer, every other row in data table, and border color is #422e36
+
+    ![footer color](assets/documentation/footer-color.png)
+
+    + D3.category10 color scheme is used for charts' coloring
+
+    ![d3.category10 color scheme](assets/documentation/category10.png)
+
+    + Text color is white.
+
+- #### Fonts
+
+    + Primary font is [Ubuntu](https://fonts.google.com/specimen/Ubuntu?query=ubuntu)
+    
+    ![font ubuntu](assets/documentation/ubuntu-font.png)
+
+    + Secondary font is [Roboto](https://fonts.google.com/specimen/Roboto?query=roboto)
+
+    ![font roboto](assets/documentation/roboto-font.png)
+
+White text color provides perfect readability on dark background.
+The contrast between D3 category10 color scheme and dark background colors provides better user experience by emphasizing charts.
 
 ---
 
