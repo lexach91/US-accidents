@@ -324,7 +324,20 @@ The steps to deploy:
 - Choose the branch that needs to be deployed
 - Click the "save" button
 
-The live link to the Website can be found here - [US Traffic Accidents](https://lexach91.github.io/US-accidents) 
+The live link to the Website can be found here - [US Traffic Accidents](https://lexach91.github.io/US-accidents)
+
+**To clone the repository to your local machine copy the command bellow and paste it to your terminal**:
+```
+git clone https://github.com/lexach91/US-accidents.git
+```
+
+**To open the repository in Gitpod**:
+
+- If you have Gitpod extension installed in your browser, press the button shown in the screenshot bellow:
+
+![how to open in gitpod](assets/documentation/gitpod.png)
+
+- If you don't have Gitpod extension installed in your browser, click this [link](https://gitpod.io/#https://github.com/lexach91/US-accidents)
 
 ---
 
