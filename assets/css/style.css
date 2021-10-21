@@ -59,6 +59,18 @@ header {
     display: none;
 }
 
+/* Info icons styles */
+.dc-chart {
+    position: relative;
+}
+
+.info {
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 /* Main container styles */
 .container {
     max-width: 1500px;
