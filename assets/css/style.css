@@ -60,16 +60,28 @@ header {
 }
 
 /* Info icons styles */
-.dc-chart {
+.dc-chart,
+section {
     position: relative;
 }
 
 .info {
     font-size: 18px;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: .2em;
+    left: .3em;
+    color: white;
+    opacity: .2;
+    width: 18px;
+    height: 18px;
+    transition: opacity 300ms ease-in-out;
+    z-index: 999;
 }
+
+.info:hover {
+    opacity: 1;
+}
+
 
 /* Main container styles */
 .container {
@@ -150,6 +162,8 @@ section {
 .map-holder {
     width: 60%;
     height: 100%;
+    border: 2px solid #432E36;
+    border-radius: 5px;
 }
 
 #us-map .layer0 {
