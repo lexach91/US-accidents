@@ -100,7 +100,8 @@ section {
 
 .modal-content {
     width: 50%;
-    height: 40%;
+    /* height: 40%; */
+    min-height: fit-content;
     font-size: 120%;
     background-color: #260C1A;
     border-radius: 5px;

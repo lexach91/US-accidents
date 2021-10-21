@@ -1,5 +1,28 @@
 dc.config.defaultColors(d3.schemeCategory10); //Changing default DC.js color scheme
 
+// Creating a function to toggle a modal
+
+function toggleModal(event) {
+  let modal = event.target.parentNode.parentNode.getElementsByClassName("modal")[0];
+  let button = modal.getElementsByTagName("button")[0];
+  if (modal.style.display === "flex") {
+    modal.style.display = "none";
+  } else {
+    modal.style.display = "flex";
+  }
+  button.onclick = () => {modal.style.display = "none"};
+  document.onkeydown = (e) => {
+    if (e.key === "Escape") {
+      modal.style.display = "none";
+    }
+  }
+  modal.onclick = (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+}
+
 // Creating variables for charts
 const mapChart = dc.geoChoroplethChart("#us-map");
 const weatherChart = dc.pieChart("#weather-selector");
@@ -295,5 +318,10 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
       document.getElementsByClassName("container")[0].style.display = "block";
       document.getElementsByTagName("header")[0].style.display = "block";
       document.getElementsByTagName("footer")[0].style.display = "flex";
+
+      const infoButtons = document.getElementsByClassName("info");
+      for (let button of infoButtons) {
+        button.addEventListener('click', toggleModal)
+      }
     });
   });
