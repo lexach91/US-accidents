@@ -3,6 +3,7 @@ dc.config.defaultColors(d3.schemeCategory10); //Changing default DC.js color sch
 // Creating a function to toggle a modal
 
 function toggleModal(event) {
+  event.preventDefault();
   let modal = event.target.parentNode.parentNode.getElementsByClassName("modal")[0];
   let button = modal.getElementsByTagName("button")[0];
   if (modal.style.display === "flex") {
