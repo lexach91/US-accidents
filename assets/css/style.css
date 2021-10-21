@@ -66,7 +66,7 @@ section {
 }
 
 .info {
-    font-size: 18px;
+    font-size: 18px !important;
     position: absolute;
     top: .2em;
     left: .3em;
@@ -76,6 +76,7 @@ section {
     height: 18px;
     transition: opacity 300ms ease-in-out;
     z-index: 999;
+    cursor: pointer;
 }
 
 .info:hover {
@@ -99,9 +100,9 @@ section {
 }
 
 .modal-content {
-    width: 50%;
-    /* height: 40%; */
-    min-height: fit-content;
+    width: 50% !important;
+    /* height: 40% !important; */
+    min-height: fit-content !important;
     font-size: 120%;
     background-color: #260C1A;
     border-radius: 5px;
@@ -124,6 +125,7 @@ section {
     font-size: 1em;
     border-radius: 5px;
     transition: all 300ms ease-in-out;
+    margin: 20px;
 }
 
 .modal-content button:hover {
@@ -155,7 +157,7 @@ section {
 h4 {
     padding: .5em;
     margin-bottom: .5em;
-    display: inline-block;
+    /* display: inline-block; */
     letter-spacing: 1.2px;
     font-size: 1.2em;
 }
@@ -231,11 +233,19 @@ section {
 }
 
 #total-num {
-    font-size: 200%;
-    padding: 1em;
+    padding: 1.5em;
     margin-bottom: .5em;
     border: 2px solid #432E36;
     border-radius: 5px;
+    line-height: 1.5;
+}
+
+#total-num h5 {
+    font-size: 130%;
+}
+
+#total-num span {
+    font-size: 250%;
 }
 
 #weather-selector {
@@ -261,7 +271,7 @@ section {
     align-items: center;
 }
 
-#tops-section div {
+#tops-section .dc-chart {
     height: 100%;
     width: 100%;
 }
