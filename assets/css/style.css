@@ -472,7 +472,22 @@ footer i:hover {
     }
 }
 
+@media screen and (max-width: 910px) {
+    .modal-content {
+        width: 80% !important;
+    }
+}
+
 @media screen and (max-width: 710px) {
+
+    .modal-content {
+        width: 90% !important;
+        /* height: 100% !important; */
+        font-size: 100%;
+        line-height: 1.5;
+        justify-content: center;
+    }
+
     footer {
         flex-direction: column;
         line-height: 1.2;
