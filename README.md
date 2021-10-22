@@ -67,6 +67,16 @@
 
     - Contains the main heading of the website
 
+- #### Information modal
+
+    - Charts and sections have info icons at the top left corner:
+
+    ![information icons](assets/documentation/info-icons.png)
+
+    - The information modal can be opened by clicking on these icons:
+
+    ![information modal](assets/documentation/info-modals.gif)
+
 - #### USA Map Chart
 
     ![USA map](assets/documentation/us-map.png)
