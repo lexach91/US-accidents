@@ -43,9 +43,9 @@
 
     - Takes 100 percent of the viewport
 
-    - Shows an animated GIF image: 
+    - Shows an animated svg image: 
 
-    ![Loading](assets/images/loading.gif)
+    ![Loading](assets/images/loading.svg)
     
     - Shows the message to the user that the data is loading and they need to wait
 
