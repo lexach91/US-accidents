@@ -2,10 +2,10 @@ dc.config.defaultColors(d3.schemeCategory10); //Changing default DC.js color sch
 
 // Creating a function to toggle a modal
 
-/** 
+/**
  * This function toggles information modals on the page.
  * It takes an event argument and accessing event's target.
-*/
+ */
 function toggleModal(event) {
   event.preventDefault();
   let modal = event.target.parentNode.getElementsByClassName("modal")[0]; // Selecting event.target's parent element to access modal div inside it
@@ -74,7 +74,8 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
     const citiesDim = csData.dimension(dc.pluck("city"));
     const dayOfWeekDim = csData.dimension((d) => {
       const day = d.date.getDay(); //Accessing numeric value of a weekday
-      const week = [ //Creating an array of weekday names
+      const week = [
+        //Creating an array of weekday names
         "Sunday",
         "Monday",
         "Tuesday",
@@ -210,7 +211,12 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
         .renderHorizontalGridLines(true)
         .renderVerticalGridLines(true)
         .useViewBoxResizing(true) //Making a chart responsive
-        .margins({ top: 30, right: 10, bottom: 30, left: 50 })
+        .margins({
+          top: 30,
+          right: 10,
+          bottom: 30,
+          left: 50,
+        })
         .x(
           d3
             .scaleTime()
