@@ -190,6 +190,11 @@ a {
     flex-direction: column;
 }
 
+#loader img {
+    width: 200px;
+    height: 200px;
+}
+
 /* Hiding error message by default */
 #error {
     display: none;
