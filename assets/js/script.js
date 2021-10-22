@@ -2,26 +2,32 @@ dc.config.defaultColors(d3.schemeCategory10); //Changing default DC.js color sch
 
 // Creating a function to toggle a modal
 
+/** 
+ * This function toggles information modals on the page.
+ * It takes an event argument and accessing event's target.
+*/
 function toggleModal(event) {
   event.preventDefault();
-  let modal = event.target.parentNode.getElementsByClassName("modal")[0];
-  let button = modal.getElementsByTagName("button")[0];
+  let modal = event.target.parentNode.getElementsByClassName("modal")[0]; // Selecting event.target's parent element to access modal div inside it
+  let button = modal.getElementsByTagName("button")[0]; // Selecting a button inside a modal
   if (modal.style.display === "flex") {
-    modal.style.display = "none";
+    modal.style.display = "none"; // Hiding modal if it was displayed
   } else {
-    modal.style.display = "flex";
+    modal.style.display = "flex"; // Showing modal if it wasn't displayed
   }
-  button.onclick = () => {modal.style.display = "none"};
+  button.onclick = () => {
+    modal.style.display = "none"; // Hiding modal by clicking button inside modal
+  };
   document.onkeydown = (e) => {
     if (e.key === "Escape") {
-      modal.style.display = "none";
+      modal.style.display = "none"; // Hiding modal by clicking "Escape" button
     }
-  }
+  };
   modal.onclick = (e) => {
     if (e.target === modal) {
-      modal.style.display = "none";
+      modal.style.display = "none"; // Hiding modal by clicking outside of modal content div
     }
-  }
+  };
 }
 
 // Creating variables for charts
@@ -67,8 +73,8 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
     const countiesDim = csData.dimension(dc.pluck("county"));
     const citiesDim = csData.dimension(dc.pluck("city"));
     const dayOfWeekDim = csData.dimension((d) => {
-      const day = d.date.getDay();
-      const week = [
+      const day = d.date.getDay(); //Accessing numeric value of a weekday
+      const week = [ //Creating an array of weekday names
         "Sunday",
         "Monday",
         "Tuesday",
@@ -77,7 +83,7 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
         "Friday",
         "Saturday",
       ];
-      return week[day];
+      return week[day]; //Returning a weekday's name
     });
 
     // Grouping all dimensions
@@ -100,7 +106,7 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
         .dimension(stateDim)
         .group(accidentsByStateGroup)
         .overlayGeoJson(mapJson.features, "state", function (d) {
-          return d.properties.name;
+          return d.properties.name; //Accessing values into geojson that contain data to draw states on svg
         })
         .projection(d3.geoAlbersUsa())
         .title(function (d) {
@@ -111,7 +117,7 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
             (d.value ? d.value : 0)
           );
         })
-        .useViewBoxResizing(true);
+        .useViewBoxResizing(true); //Making a chart responsive
 
       // Weather selector chart
       weatherChart
@@ -132,7 +138,7 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
             (d.value ? d.value : 0)
           );
         })
-        .useViewBoxResizing(true);
+        .useViewBoxResizing(true); //Making a chart responsive
 
       //Top 10 states by amount of accidents chart
       topStatesChart
@@ -150,7 +156,7 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
             (d.value ? d.value : 0)
           );
         })
-        .useViewBoxResizing(true)
+        .useViewBoxResizing(true) //Making a chart responsive
         .xAxis()
         .ticks(6);
 
@@ -170,7 +176,7 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
             (d.value ? d.value : 0)
           );
         })
-        .useViewBoxResizing(true)
+        .useViewBoxResizing(true) //Making a chart responsive
         .xAxis()
         .ticks(6);
 
@@ -190,7 +196,7 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
             (d.value ? d.value : 0)
           );
         })
-        .useViewBoxResizing(true)
+        .useViewBoxResizing(true) //Making a chart responsive
         .xAxis()
         .ticks(6);
 
@@ -203,7 +209,7 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
         .elasticY(true)
         .renderHorizontalGridLines(true)
         .renderVerticalGridLines(true)
-        .useViewBoxResizing(true)
+        .useViewBoxResizing(true) //Making a chart responsive
         .margins({ top: 30, right: 10, bottom: 30, left: 50 })
         .x(
           d3
@@ -217,7 +223,7 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
       totalNumber
         .group(all)
         .valueAccessor((x) => x)
-        .formatNumber(d3.format("d"));
+        .formatNumber(d3.format("d")); //Format number to show integer
 
       // Day-night selector chart
       dayNightChart
@@ -233,7 +239,7 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
           );
         })
         .group(dayNightGroup)
-        .useViewBoxResizing(true);
+        .useViewBoxResizing(true); //Making a chart responsive
 
       // Severity of an impact on traffic chart
       severityChart
@@ -242,6 +248,7 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
         .dimension(severityDim)
         .group(severityGroup)
         .ordering((d) => {
+          //Ordering rows from lowest impact to highest
           if (d.key == "Little or no impact") {
             return 0;
           } else if (d.key == "Light impact") {
@@ -261,19 +268,19 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
             (d.value ? d.value : 0)
           );
         })
-        .useViewBoxResizing(true);
+        .useViewBoxResizing(true); //Making a chart responsive
 
       // Table on aggregated data
       dataTable
         .dimension(dateDim)
         .showSections(false)
         .size(30) // Specifies an amount of rows shown in the table
-        .useViewBoxResizing(true)
+        .useViewBoxResizing(true) //Making a chart responsive
         .columns([
           {
             label: "Date",
             format: function (d) {
-              return formatDate(d.date);
+              return formatDate(d.date); //Using date format we specified before
             },
           },
           "state",
@@ -281,7 +288,7 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
           "city",
           "description",
         ])
-        .useViewBoxResizing(true);
+        .useViewBoxResizing(true); //Making a chart responsive
 
       // Day of a week chart
       dayOfWeekChart
@@ -291,6 +298,7 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
         .group(dayOfWeekGroup)
         .elasticX(true)
         .ordering((d) => {
+          //Ordering rows from Sunday to Saturday
           const order = {
             Sunday: 0,
             Monday: 1,
@@ -310,7 +318,7 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
             (d.value ? d.value : 0)
           );
         })
-        .useViewBoxResizing(true);
+        .useViewBoxResizing(true); //Making a chart responsive
 
       dc.renderAll(); //Function that draws all charts
 
@@ -320,9 +328,9 @@ d3.csv(dataUrl) // Fetching the dataset by creating a promise with D3 library
       document.getElementsByTagName("header")[0].style.display = "block";
       document.getElementsByTagName("footer")[0].style.display = "flex";
 
-      const infoButtons = document.getElementsByClassName("info");
+      const infoButtons = document.getElementsByClassName("info"); //Selecting all info buttons on the page
       for (let button of infoButtons) {
-        button.addEventListener('click', toggleModal)
+        button.addEventListener("click", toggleModal); //Adding event listeners to all info buttons to toggle modals
       }
     });
   });
