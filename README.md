@@ -291,7 +291,7 @@ The fonts, colors, and charts' color scheme were chosen to provide better readab
 
     + Tools that were used to check the website responsiveness:
         - [Responsive Design Checker](https://responsivedesignchecker.com/):
-        ![responsive design checker results](assets/documentation/resposive-design-checker.gif)
+        ![responsive design checker results](assets/documentation/responsive-design-checker.gif)
         - [Am I Responsive](https://responsivedesignchecker.com/):
         ![am i responsive results](assets/documentation/am-i-responsive.png)
         - Chrome Developer tools:
