@@ -277,7 +277,7 @@ The fonts, colors, and charts' color scheme were chosen to provide better readab
     
     ![Jigsaw CSS validator results](assets/documentation/jigsaw-css.png)
     
-    + However, seven warnings were returned, which have no impact on page display:
+    + However, fourteen warnings were returned, which have no impact on page display:
     
     ![CSS warnings](assets/documentation/css-warnings.png)
 
