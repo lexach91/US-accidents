@@ -54,7 +54,7 @@ text {
 
 header {
     max-width: 1500px;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: #2e1a26;
     margin: 0 auto;
     display: none;
 }
@@ -94,7 +94,7 @@ section {
     display: none;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0,0,0,.7);
+    background-color: rgba(0,0,0,.8);
     z-index: 1000;
     backdrop-filter: blur(15px);
 }
@@ -104,7 +104,7 @@ section {
     /* height: 40% !important; */
     min-height: fit-content !important;
     font-size: 120%;
-    background-color: #260C1A;
+    background-color: #2e1a26;
     border-radius: 5px;
     box-shadow: 0 0 15px 3px #432E36;
     display: flex;
@@ -138,7 +138,7 @@ section {
     max-width: 1500px;
     margin: 0 auto;
     display: none;
-    background-color: rgba(255, 255, 255, 0.05)
+    background-color: #2e1a26;
 }
 
 /* Changing default dc.js css properties for chart axis */
@@ -528,4 +528,8 @@ footer i:hover {
         font-size: 70%;
     }
 
+    h4 {
+        padding: 10px;
+        font-size: .8em;
+    }
 }
