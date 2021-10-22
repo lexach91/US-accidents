@@ -1,10 +1,16 @@
+/* Note: css rules where !important is used - this is to overwrite default dc.js library styles */
 /* importing google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@300;400&display=swap');
 
-/* font css variables */
+/* font and colors css variables */
 :root {
     --font-primary: 'Ubuntu', sans-serif;
     --font-secondary: 'Roboto', sans-serif;
+    --bg-color-1: #260C1A;
+    --bg-color-2: #2e1a26;
+    --bg-color-3: #432E36;
+    --border-chart: 2px solid #432E36;
+    --border-radius: 5px;
 }
 
 /* Custom scrollbar styles */
@@ -23,7 +29,7 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: #260C1A;
+    background: var(--bg-color-1);
     border-radius: 10px;
     box-shadow: inset 0px 0px 0px 0px #F0F0F0;
 }
@@ -38,7 +44,7 @@
 /* Body styles */
 body {
     text-align: center;
-    background: #260C1A;
+    background: var(--bg-color-1);
     color: white;
     fill: white !important;
     font-family: var(--font-primary);
@@ -54,7 +60,7 @@ text {
 
 header {
     max-width: 1500px;
-    background-color: #2e1a26;
+    background-color: var(--bg-color-2);
     margin: 0 auto;
     display: none;
 }
@@ -103,9 +109,9 @@ section {
     width: 50% !important;
     min-height: fit-content !important;
     font-size: 120%;
-    background-color: #2e1a26;
-    border-radius: 5px;
-    box-shadow: 0 0 15px 3px #432E36;
+    background-color: var(--bg-color-2);
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 15px 3px var(--bg-color-3);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -122,14 +128,14 @@ section {
     color: white;
     border: 2px solid white;
     font-size: 1em;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     transition: all 300ms ease-in-out;
     margin: 20px;
 }
 
 .modal-content button:hover {
-    background-color: #432E36;
-    box-shadow: 0 0 20px 0 #432E36;
+    background-color: var(--bg-color-3);
+    box-shadow: 0 0 20px 0 var(--bg-color-3);
 }
 
 /* Main container styles */
@@ -137,7 +143,7 @@ section {
     max-width: 1500px;
     margin: 0 auto;
     display: none;
-    background-color: #2e1a26;
+    background-color: var(--bg-color-2);
 }
 
 /* Changing default dc.js css properties for chart axis */
@@ -194,8 +200,8 @@ section {
     width: 95%;
     margin: 0 auto;
     margin-bottom: 100px;
-    border: 2px solid #432E36;
-    border-radius: 5px;
+    border: var(--border-chart);
+    border-radius: var(--border-radius);
     padding: .5em;
 }
 
@@ -210,12 +216,13 @@ section {
 .map-holder {
     width: 60%;
     height: 100%;
-    border: 2px solid #432E36;
-    border-radius: 5px;
+    border: var(--border-chart);
+    border-radius: var(--border-radius);
 }
 
+/* Make map layer visually centered in svg */
 #us-map .layer0 {
-    transform: translate(-5%, 0)
+    transform: translate(-5%, 0) 
 }
 
 #us-map path {
@@ -233,8 +240,8 @@ section {
 #total-num {
     padding: 1.5em;
     margin-bottom: .5em;
-    border: 2px solid #432E36;
-    border-radius: 5px;
+    border: var(--border-chart);
+    border-radius: var(--border-radius);
     line-height: 1.5;
 }
 
@@ -248,17 +255,13 @@ section {
 
 #weather-selector {
     height: 85%;
-    border: 2px solid #432E36;
-    border-radius: 5px;
+    border: var(--border-chart);
+    border-radius: var(--border-radius);
     padding: 0.5em;
 }
 
 #weather-selector h4 {
     margin-bottom: 1em;
-}
-
-#weather-selector .dc-legend {
-    transform: translate(0, 10px) !important;
 }
 
 /* Styles for the section with graphs for top 10 states, counties, and cities */
@@ -289,7 +292,6 @@ section {
 
 .dc-legend-item>text {
     font-size: 16px !important;
-
 }
 
 /* Styles for section with severity chart, and day-night pie chart */
@@ -319,8 +321,8 @@ section {
     margin: 1em auto;
     font-family: var(--font-secondary);
     width: 100%;
-    border: 2px solid #432E36;
-    border-radius: 5px;
+    border: var(--border-chart);
+    border-radius: var(--border-radius);
 }
 
 tr:hover {
@@ -329,16 +331,16 @@ tr:hover {
 
 td,
 th {
-    border: 1px solid #432E36;
+    border: 1px solid var(--bg-color-3);
     padding: .2em
 }
 
 th {
-    background-color: #432E36;
+    background-color: var(--bg-color-3);
 }
 
 tr:nth-child(even) {
-    background-color: #432E36;
+    background-color: var(--bg-color-3);
 }
 
 /* Footer styles */
@@ -348,7 +350,7 @@ footer {
     align-items: flex-start;
     justify-content: space-evenly;
     width: 100%;
-    background-color: #432E36;
+    background-color: var(--bg-color-3);
     padding: 1em;
     line-height: 1.5;
 }
@@ -389,7 +391,7 @@ footer i:hover {
 
 }
 
-/* Media query for tablets and mobile devices */
+/* Media queries for tablets and mobile devices */
 @media screen and (max-width: 1100px) {
     section {
         margin-bottom: 20px;
@@ -402,8 +404,8 @@ footer i:hover {
 
     .map-holder {
         width: 100%;
-        border: 2px solid #432E36;
-        border-radius: 5px;
+        border: var(--border-chart);
+        border-radius: var(--border-radius);
         margin-top: 15px;
     }
 
