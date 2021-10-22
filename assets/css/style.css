@@ -222,7 +222,7 @@ section {
 
 /* Make map layer visually centered in svg */
 #us-map .layer0 {
-    transform: translate(-5%, 0) 
+    transform: translate(-5%, 0);
 }
 
 #us-map path {
